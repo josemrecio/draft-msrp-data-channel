@@ -434,12 +434,6 @@ The active MSRP session endpoint does not use the path attribute to open a trans
 
   </section>
 
-  <section anchor="Security" title="Security Considerations">
-
-   <t>To be completed.</t>
-
-  </section>
-
   <section anchor="IANA" title="IANA Considerations">
 
    <section title="Subprotocol Identifier MSRP" anchor="IANA-reg-MSRP">
@@ -536,6 +530,12 @@ The active MSRP session endpoint does not use the path attribute to open a trans
      </texttable>
 
    </section>
+  </section>
+
+  <section anchor="Security" title="Security Considerations">
+
+   <t>To be completed.</t>
+
   </section>
 
   <section title="Acknowledgments">
