@@ -115,6 +115,14 @@
    <organization>Unaffiliated</organization>
   </author>
 
+  <author initials="J. M." surname="Recio" fullname="Jose M. Recio" role="editor">
+   <organization>CoSMo Software</organization>
+   <address>
+    <email>jose@ch3m4.com
+    </email>
+   </address>
+  </author>
+
   <date year="2018" />
 
   <!-- If the month and year are both specified and are the current ones, 
