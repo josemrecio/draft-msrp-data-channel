@@ -152,7 +152,7 @@
 
   <abstract>
 
-   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be instantiated as a data channel sub-protocol, using the SDP offer/answer exchange-based generic data channel negotiation framework. Two network configurations are documented: a WebRTC end-to-end configuration (connecting two MSRP over data channel endpoints), and a gateway configuration (connecting an MSRP over data channel endpoint with an MSRP over TCP endpoint).</t>
+   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be instantiated as a data channel sub-protocol, using the SDP offer/answer exchange-based generic data channel negotiation framework. Two network configurations are documented: a WebRTC end-to-end configuration (connecting two MSRP over data channel endpoints), and a gateway configuration (connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint).</t>
 
   </abstract>
  </front>
@@ -234,6 +234,7 @@ transport  /= "dc" / 1*ALPHANUM
               ; Add "dc" to existing transports per [RFC4975]
 ]]></artwork>
      </figure>
+    <t>MSRP design provides for new transport bindings, see Section 6 of <xref target="RFC4975"/>, MSRP implementations are expected to allow unrecognized transports for which there is no need to establish a connection to the resource described by the URI.</t>
 
    </section>
 
@@ -266,7 +267,7 @@ transport  /= "dc" / 1*ALPHANUM
 
       <t> Rest of the SDP offer/answer procedures are per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
 
-      <t>The following is an example of the dcmap attribute for an MSRP session to be negotiated with stream=2 and label="chat":</t>
+      <t>The following is an example of the dcmap attribute for an MSRP session to be negotiated with stream-id=2 and label="chat":</t>
 
       <figure align="left" title="">
        <artwork align="left"><![CDATA[
@@ -303,21 +304,13 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
      <section title="Use of the setup Attribute" anchor="use-of-setup-attribute">
 
-      <t>The SDP setup attribute, as introduced in <xref target="RFC4145"/>, can be used in WebRTC data channel related SDP media descriptions as a media level attribute, which is associated with the corresponding UDP/DTLS/SCTP or TCP/DTLS/SCTP "m" line. In this case the setup attribute is of the form "a=setup:&lt;role&gt;", where &lt;role&gt; assumes values as defined in <xref target="RFC4145"/>. Such a setup attribute is used as specified in <xref target="I-D.ietf-mmusic-sctp-sdp"/> in order to negotiate the establishment roles of the DTLS connection. If an MSRP session is negotiated over a data channel, then such an "a=setup" attribute has no relationship with the MSRP session.
+      <t>A dsca embedded setup attribute, as defined in <xref target="RFC4145"/>, MUST be used for MSRP sessions over data channels. It is used to negotiate which MSRP session endpoint assumes the active role as per Section 4.2.2 of <xref target="RFC6135"/> and Section 5.4 of <xref target="RFC4975"/>. It has no relationship with the DTLS connection establishment roles.
       </t>
-
-      <t>Additionally, the setup attribute can be embedded in a dcsa attribute and hence can explicitly be associated with an MSRP session over a specific data channel.
-In such a case it is of the form "a=dcsa:x setup:&lt;role&gt;", with x being the data channel's SCTP stream identifier.
-Such a dcsa embedded setup attribute has no relationship with the DTLS connection establishment roles.
-      </t>
-
-      <t>A dcsa embedded setup attribute MUST be used for MSRP sessions over data channels.
-      </t>
-
-      <t>The dcsa embedded setup attribute in an MSRP over data channel description is used to negotiate, which MSRP session endpoint assumes the active role as per Section 4.2.2 of <xref target="RFC6135"/> and Section 5.4 of <xref target="RFC4975"/>.
-      </t>
+      <t>The dcsa embedded setup attribute is of the form "a=dcsa:x setup:&lt;role&gt;", with x being the data channel's SCTP stream identifier, so that such attribute is explicitly associated with an MSRP session over a specific data channel.</t>
 
       <t>It is considered an error if an MSRP over data channel description does not contain a dcsa embedded setup attribute.
+      </t>
+      <t>The SDP setup attribute can also be used in WebRTC data channel related SDP media descriptions as a media level attribute, which is associated with the corresponding UDP/DTLS/SCTP or TCP/DTLS/SCTP "m" line. Such an "a=setup" attribute is used as specified in <xref target="I-D.ietf-mmusic-sctp-sdp"/> in order to negotiate the establishment roles of the DTLS connection and has no relationship with the MSRP session.
       </t>
 
      </section>
@@ -333,9 +326,9 @@ Such a dcsa embedded setup attribute has no relationship with the DTLS connectio
    a=max-message-size:100000
    a=sctp-port:5000
    a=setup:actpass
-   a=connection:new
-   a=fingerprint:SHA-256 \
-        4A:AD:B9:B1:3F:82:18:3B:54:02:12:DF:3E:5D:49:6B:19:E5:7C:AB
+   a=fingerprint:SHA-1 \
+       4A:AD:B9:B1:3F:82:18:3B:54:02:12:DF:3E:5D:49:6B:19:E5:7C:AB
+   a=tls-id:4a756565cddef001be82
    a=dcmap:0 label="chat";subprotocol="MSRP"
    a=dcsa:0 setup:active
    a=dcsa:0 accept-types:message/cpim text/plain
@@ -346,14 +339,14 @@ Such a dcsa embedded setup attribute has no relationship with the DTLS connectio
    a=dcsa:2 accept-types:message/cpim
    a=dcsa:2 accept-wrapped-types:*
    a=dcsa:2 path:msrps://bob.example.com:54111/jshA7we;dc
-   a=dcsa:2 file-selector:name:"My cool picture.jpg" \
-        type:image/jpeg size:32349 hash:sha-1: \
-        72:24:5F:E8:65:3D:DA:F3:71:36:2F:86:D4:71:91:3E:E4:A2:CE:2E
-   a=dcsa:2 file-transfer-id:vBnG916bdberum2fFEABR1FR3ExZMUrd
+   a=dcsa:2 file-selector:name:"picture1.jpg" \
+        type:image/jpeg size:1463440 hash:sha-1: \
+        FF:27:0D:81:14:F1:8A:C3:35:3B:36:64:2A:62:C9:3E:D3:6B:51:B4
+   a=dcsa:2 file-transfer-id:rjEtHAcYVZ7xKwGYpGGwyn5gqsSaU7Ep
    a=dcsa:2 file-disposition:attachment
-   a=dcsa:2 file-date:creation:"Mon, 15 May 2006 15:01:31 +0300"
+   a=dcsa:2 file-date:creation:"Mon, 12 Jan 2018 15:01:31 +0800"
    a=dcsa:2 file-icon:cid:id2@bob.example.com
-   a=dcsa:2 file-range:1-32349
+   a=dcsa:2 file-range:1-1463440
 ]]></artwork>
       </figure>
 
@@ -362,8 +355,7 @@ Such a dcsa embedded setup attribute has no relationship with the DTLS connectio
 
     <section title="Session Opening" anchor="session-opening">
 
-     <t><xref target="use-of-setup-attribute"/> describes how the active MSRP session endpoint role is negotiated.
-The active MSRP session endpoint does not use the path attribute to open a transport connection to its peer. Instead, it uses the data channel established for this MSRP session by the generic data channel opening procedure defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
+     <t><xref target="use-of-setup-attribute"/> describes how the active MSRP session endpoint role is negotiated. The active MSRP session endpoint does not use the path attribute to open a transport connection to its peer. Instead, it uses the data channel established for this MSRP session by the generic data channel opening procedure defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
 
      <t>As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP session endpoint. In order to do this the active MSRP endpoint sends an MSRP SEND message (empty or not) to the other MSRP endpoint. The msrp-cema attribute is implicitly associated with every MSRP session using data channel transport.</t>
 
@@ -413,7 +405,9 @@ The active MSRP session endpoint does not use the path attribute to open a trans
 
    <t>This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway.</t>
 
-   <t>Specifically, a gateway can be configured to interwork an MSRP session over a data channel with a peer that does not support data channel transport in one of two ways.  In one model, the gateway performs as a MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
+   <t>Specifically, a gateway can be configured to interwork an MSRP session over a data channel with a peer that does not support data channel transport in one of two ways.</t>
+
+   <t>In one model, the gateway performs as a MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
 
    <t>Alternately, the gateway can use CEMA procedures to provide transport level interworking between MSRP endpoints using different transport protocols as follows.</t>
 
@@ -422,7 +416,7 @@ The active MSRP session endpoint does not use the path attribute to open a trans
     <list style='symbols'>
      <t>The endpoint establishing an MSRP session using data channel transport SHALL NOT request inclusion of any relays, although it MAY interoperate with a peer that signals the use of relays.</t>
 
-     <t>The gateway receiving an SDP offer that includes a request to negotiate an MSRP session on a data channel can provide transport level interworking in the same manner as a CEMA SBC by forwarding TCP or TLS transport parameters in a new "m" line with the appropriate attributes within the forwarded SDP offer.
+     <t>The gateway receiving an SDP offer that includes a request to negotiate an MSRP session on a data channel can provide transport level interworking by forwarding TCP or TLS transport parameters in a new "m" line with the appropriate attributes within the forwarded SDP offer.
 
       <list style="symbols">
        <t>Especially, the gateway interworks the received MSRP over data channel associated dcsa embedded setup attribute with the media description level "a=setup" attribute of the MSRP over TCP or TLS "m" line within its forwarded SDP offer.
@@ -430,7 +424,7 @@ The active MSRP session endpoint does not use the path attribute to open a trans
       </list>
      </t>
 
-     <t>Similarly, a gateway receiving an SDP offer to negotiate an MSRP session using TCP or TLS transport with an endpoint that only supports data channel transport for MSRP can provide transport level interworking in the same manner as a CEMA SBC by establishing a new data channel for the MSRP session with the target endpoint.
+     <t>Similarly, a gateway receiving an SDP offer to negotiate an MSRP session using TCP or TLS transport with an endpoint that only supports data channel transport for MSRP can provide transport level interworking by establishing a new data channel for the MSRP session with the target endpoint.
 
       <list style="symbols">
        <t>In this case the gateway interworks the received MSRP over TCP or TLS associated "a=setup" attribute with the dcsa embedded setup attribute of the generated MSRP over data channel description.
