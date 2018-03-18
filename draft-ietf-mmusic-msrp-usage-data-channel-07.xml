@@ -550,7 +550,21 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
  <section title="CHANGE LOG">
 
- <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-06'">
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-07'">
+   <t>
+    <list style="symbols">
+     <t>Move security considerations after IANA considerations, following RFC7322 suggested order.</t>
+     <t>Update references to use xml.resource.org citation database.</t>
+     <t>Reformat of the section discussing setup parameter</t>
+     <t>Align examples with latest <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/> draft.</t>
+     <t>Edit section 6 for clarity.</t>
+     <t>Security requirements.</t>
+     <t>Update year, add editor.</t>
+
+    </list>
+   </t>
+  </section>
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-06'">
    <t>
     <list style="symbols">
 
