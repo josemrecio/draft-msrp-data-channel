@@ -536,7 +536,9 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
   <section anchor="Security" title="Security Considerations">
 
-   <t>To be completed.</t>
+   <t>MSRP traffic over data channels is secured, including confidentiality, integrity and source authentication, as specified by <xref target="I-D.ietf-rtcweb-data-channel"/></t>
+
+   <t>Note that discussion in <xref target="RFC4975"/> on MSRP message attribution to remote identities applies to data channel transport.</t>
 
   </section>
 
