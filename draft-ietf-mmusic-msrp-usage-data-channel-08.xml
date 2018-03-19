@@ -254,7 +254,7 @@ transport  /= "dc" / 1*ALPHANUM
 
      <section title="Use of the dcmap Attribute" anchor="use-of-dcmap-attribute">
 
-      <t>The SDP offer SHALL include a dcmap attribute line (defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>), within the media description for the SCTP association for each MSRP data channel session to be negotiated.</t>
+      <t>The SDP offer SHALL include a dcmap attribute line (defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) within the media description of the SCTP association for each MSRP data channel session to be negotiated.</t>
 
       <t>The attribute includes the following data channel parameters:
        <list style='symbols'>
@@ -263,7 +263,7 @@ transport  /= "dc" / 1*ALPHANUM
        </list>
       </t>
 
-      <t>The labelstring is set by the MSRP application according to <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>. Ordered and reliable data channels MUST always be used, such that the "max-retr" and "max-time" parameters SHALL NOT be used. If the "ordered" parameter is used, then its value MUST be equal to "true".</t>
+      <t>The labelstring is set by the MSRP application according to <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>. Ordered and reliable data channels MUST always be used, so that the "max-retr" and "max-time" parameters SHALL NOT be used. If the "ordered" parameter is used, then its value MUST be equal to "true".</t>
 
       <t> Rest of the SDP offer/answer procedures are per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
 
@@ -279,7 +279,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
      <section title="Use of the dcsa Attribute" anchor="use-of-dcsa-attribute">
 
-      <t>The SDP offer SHALL also include within the media description for the SCTP association a dcsa attribute line (defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) for each MSRP-specific SDP attribute to be negotiated for each MSRP data channel being negotiated.</t>
+      <t>The SDP offer SHALL also include within the media description for the SCTP association, a dcsa attribute line (defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) for each MSRP-specific SDP attribute to be negotiated for each MSRP data channel being negotiated.</t>
 
       <t>The MSRP-specific items that can be negotiated include at least all of the following well-known attributes:
        <list style='symbols'>
@@ -340,7 +340,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
    a=dcsa:2 accept-wrapped-types:*
    a=dcsa:2 path:msrps://bob.example.com:54111/jshA7we;dc
    a=dcsa:2 file-selector:name:"picture1.jpg" \
-        type:image/jpeg size:1463440 hash:sha-1: \
+        type:image/jpeg size:1463440 hash:sha-1:\
         FF:27:0D:81:14:F1:8A:C3:35:3B:36:64:2A:62:C9:3E:D3:6B:51:B4
    a=dcsa:2 file-transfer-id:rjEtHAcYVZ7xKwGYpGGwyn5gqsSaU7Ep
    a=dcsa:2 file-disposition:attachment
