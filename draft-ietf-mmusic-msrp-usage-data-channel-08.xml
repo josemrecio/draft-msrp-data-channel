@@ -239,7 +239,7 @@ transport  /= "dc" / 1*ALPHANUM
    </section>
 
    <section title="msrp-scheme">
-    <t>The msrp-scheme portion of the MSRP-URI that represents an MSRP data channel endpoint (used in the SDP path attribute and in the MSRP message headers) is always "msrps", which indicates that the MSRP data channel is always secured using DTLS.</t>
+    <t>The msrp-scheme portion of the MSRP-URI that represents an MSRP data channel endpoint (used in the SDP path attribute and in the MSRP message headers) is always "msrps", which indicates that the MSRP data channel is always secured using DTLS as described in <xref target="I-D.ietf-rtcweb-data-channel"/>.</t>
    </section>
 
   </section>
