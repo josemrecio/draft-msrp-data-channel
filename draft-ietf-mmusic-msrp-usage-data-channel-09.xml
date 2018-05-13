@@ -173,12 +173,11 @@
     </list>
    </t>
 
-   <t>Data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in many other platforms and applications that use WebRTC.</t>
+   <t>Compared to WebSockets, that provide a message passing protocol to applications with no direct access to TCP or TLS sockets, data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in other applications that use WebRTC for media or other purposes (IoT or telemetry in general, non-media data exchange, etc).</t>
 
    <t>Considering an MSRP endpoint being an MSRP application that uses data channel from WebRTC specifications <xref target="I-D.ietf-rtcweb-data-channel"/>, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
 
   </section>
-
 
   <section title="Conventions">
    <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119"></xref>.</t>
@@ -549,6 +548,15 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
   </section>
 
  <section title="CHANGE LOG">
+
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-08'">
+   <t>
+    <list style="symbols">
+     <t>Updated reference to 4566bis.</t>
+     <t>Expanded motivation paragraphs in introduction.</t>
+    </list>
+   </t>
+  </section>
 
   <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-07'">
    <t>
