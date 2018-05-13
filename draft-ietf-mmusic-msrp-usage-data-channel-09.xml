@@ -17,12 +17,12 @@
 <!ENTITY RFC4145     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4145.xml">
 <!ENTITY RFC4960     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4960.xml">
 <!ENTITY RFC4566     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4566.xml">
-<!ENTITY RFC4566bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.draft-ietf-mmusic-rfc4566bis-17.xml">
+<!ENTITY RFC4566bis  SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-rfc4566bis.xml">
 <!ENTITY RFC4975     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4975.xml">
-<!--  <!ENTITY RFC4976     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4976.xml">  -->
 <!ENTITY RFC5547     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5547.xml">
 <!ENTITY RFC6135     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6135.xml">
 <!ENTITY RFC6714     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6714.xml">
+<!ENTITY RFC7977     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7977.xml">
 ]>
 
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -160,11 +160,9 @@
  <middle>
   <section title="Introduction" anchor="introduction">
 
-   <t>The Message Session Relay Protocol (MSRP) <xref target="RFC4975"></xref> is a protocol for transmitting a series of related instant messages in the context of a session. In addition to instant messaging, MSRP can also be used for image sharing or file transfer. MSRP is currently defined to work over TCP and TLS connections.</t>
+   <t>The Message Session Relay Protocol (MSRP) <xref target="RFC4975"></xref> is a protocol for transmitting a series of related instant messages in the context of a session. In addition to instant messaging, MSRP can also be used for image sharing or file transfer. MSRP is currently defined to work over TCP and TLS connections, and a WebSocket subprotocol specified by <xref target="RFC4975"></xref>.</t>
 
-   <t>This document defines the negotiation and transport of this MSRP protocol over data channels, where a data channel is a bi-directional communication channel running on top of SCTP/DTLS (as per <xref target="I-D.ietf-rtcweb-data-channel"/>) and where MSRP is instantiated as a sub-protocol of this data channel.
-The MSRP protocol negotiation defined in this document is based on the generic SDP offer/answer exchange based data channel negotiation as specified in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.
-</t>
+   <t>This document defines the negotiation and transport of this MSRP protocol over data channels, where a data channel is a bi-directional communication channel running on top of SCTP/DTLS (as per <xref target="I-D.ietf-rtcweb-data-channel"/>) and where MSRP is instantiated as a sub-protocol of this data channel. The MSRP protocol negotiation defined in this document is based on the generic SDP offer/answer exchange based data channel negotiation as specified in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
 
    <t>Defining MSRP as a data channel sub-protocol has many benefits:
     <list style='symbols'>
@@ -174,6 +172,8 @@ The MSRP protocol negotiation defined in this document is based on the generic S
      <t>allows the interworking with MSRP endpoints running on a TCP or TLS connection</t>
     </list>
    </t>
+
+   <t>Data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in many other platforms and applications that use WebRTC.</t>
 
    <t>Considering an MSRP endpoint being an MSRP application that uses data channel from WebRTC specifications <xref target="I-D.ietf-rtcweb-data-channel"/>, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
 
@@ -754,7 +754,6 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
    &RFC4566;
    &RFC4566bis;
    &RFC4975;
-   <!--  &RFC4976;  -->
    &RFC5547;
    &RFC6135;
    &RFC6714;
