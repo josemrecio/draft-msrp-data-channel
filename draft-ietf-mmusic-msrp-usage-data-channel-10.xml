@@ -549,6 +549,14 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
  <section title="CHANGE LOG">
 
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-09'">
+   <t>
+    <list style="symbols">
+     <t>Corrected area to ART.</t>
+    </list>
+   </t>
+  </section>
+
   <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-08'">
    <t>
     <list style="symbols">
