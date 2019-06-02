@@ -550,6 +550,15 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
  <section title="CHANGE LOG">
 
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-10'">
+   <t>
+    <list style="symbols">
+     <t>Corrections and clarifications on cema and path attributes after mail list feedback.</t>
+    </list>
+   </t>
+  </section>
+
+
   <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-09'">
    <t>
     <list style="symbols">
