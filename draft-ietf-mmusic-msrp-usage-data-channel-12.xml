@@ -286,7 +286,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
        </list>
       </t>
 
-      <t>This document describes directly connecting to a data channel endpoint that is either a MSRP endpoint or an MSRP GW, as a result MSRP Connection Establishment for Media Anchoring (MSRP-CEMA) <xref target="RFC6714"/> is outside of the scope of this document. The msrp-cema attribute SHALL NOT be present.</t>
+      <t>MSRP Connection Establishment for Media Anchoring (MSRP-CEMA) <xref target="RFC6714"/> is outside of the scope of this document. The msrp-cema attribute SHALL NOT be present.</t>
 
       <t>As described in <xref target="session-opening"/> the path attribute is not used for transport establiment.</t>
 
@@ -403,7 +403,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
    <t>In one model, the gateway performs as a MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
 
-   <t>Alternately, the gateway can use CEMA procedures to provide transport level interworking between MSRP endpoints using different transport protocols as follows. Path attributes SHALL NOT be used for transport level interworking.</t>
+   <t>Alternately, the gateway can use CEMA procedures to provide transport level interworking between MSRP endpoints using different transport protocols as follows. For example, if the gateway is implemented on an Session Border Controller, it can use CEMA towars the inside network, using a non-data channel transport; but the gateway can not use CEMA towards endpoints using data channel transport. Path attributes SHALL NOT be used for transport level interworking.</t>
 
    <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="end_to_end"/> apply to each peer, with the following additions:
 
