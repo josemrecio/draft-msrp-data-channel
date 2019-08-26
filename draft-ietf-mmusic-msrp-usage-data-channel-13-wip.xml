@@ -243,11 +243,16 @@ transport  /= "dc" / 1*ALPHANUM
 
    <section title="Basic MSRP Support">
 
-    <section title="Session Negotiation">
+    <section title="SDP Considerations">
+      <t>
+        The generic SDP considerations, including the SDP Offer/Answer
+        proceudres, for negotiating a WebRTC data channel are defined in
+        <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>. This section
+        defines the SDP considerations that are specific to an MSRP data channel.
 
      <section title="Use of the dcmap Attribute" anchor="use-of-dcmap-attribute">
 
-      <t>The SDP offer SHALL include a dcmap attribute line (defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) within the media description of the SCTP association for each MSRP data channel session to be negotiated.</t>
+      <t>An offerer and answerer MUST, in each offer and answer, include a dcmap attribute line (<xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) within the media description of the SCTP association for each MSRP data channel session to be negotiated.</t>
 
       <t>The attribute includes the following data channel parameters:
        <list style='symbols'>
@@ -256,11 +261,13 @@ transport  /= "dc" / 1*ALPHANUM
        </list>
       </t>
 
-      <t>The labelstring is set by the MSRP application according to <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>. Ordered and reliable data channels MUST always be used, so that the "max-retr" and "max-time" parameters SHALL NOT be used. If the "ordered" parameter is used, then its value MUST be equal to "true".</t>
+      <t>The labelstring is set by the MSRP application according to <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
 
-      <t> Rest of the SDP offer/answer procedures are per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
+      <t>The offerer and answerer MUST NOT include the max-retr and the max-time attribute parameters in the dcmap attribute.</t>
+      
+      <t>The offerer and answerer MAY include the ordered attribute parameter in the dcmap attribute. If included, the attribute parameter value MUST be set to "true".</t>
 
-      <t>The following is an example of the dcmap attribute for an MSRP session to be negotiated with stream-id=2 and label="chat":</t>
+      <t>Below is an example of the dcmap attribute for an MSRP session to be negotiated with stream-id=2 and label="chat":</t>
 
       <figure align="left" title="">
        <artwork align="left"><![CDATA[
@@ -272,39 +279,50 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
      <section title="Use of the dcsa Attribute" anchor="use-of-dcsa-attribute">
 
-      <t>The SDP offer SHALL also include within the media description for the SCTP association, a dcsa attribute line (defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) for each MSRP-specific SDP attribute to be negotiated for each MSRP data channel being negotiated.</t>
+      <t>
+        An offerer and answerer MUST, in each offer and answer, include a dcsa attribute line (<xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) 
+        within the media description for the SCTP association for each MSRP-specific SDP attribute to be negotiated for each MSRP data channel being negotiated.
+      </t>
 
-      <t>The MSRP-specific items that can be negotiated include at least all of the following well-known attributes:
+      <t>
+        An offerer and answerer MUST include a dcsa attribute for the following MSRP-specific SDP attributes:
        <list style='symbols'>
-        <t>defined in <xref target="RFC4975"/>: "path", "accept-types", 
-           "accept-wrapped-types", "max-size"</t>
-        <t>defined in <xref target="RFC4566"/>: "sendonly", "recvonly", 
-           "inactive", and "sendrecv"</t>
-        <t>defined in <xref target="RFC6135"/>: "setup"</t>
-        <t>defined in <xref target="RFC5547"/>: all the parameters related to 
-           MSRP file transfer. See <xref target="file_transfer"/>.</t>
+        <t>defined in <xref target="RFC4975"/>: "path".</t>
+        <t>defined in <xref target="RFC6714"/>: "msrp-cema".</t>
+        <t>defined in <xref target="RFC6135"/>: "setup". See <xref target="use-of-setup-attribute"/></t>
+       </list>
+      </t>
+      <t>
+        It is considered a protocol error if one or more of the dcsa embedded attributes listed above are not included in an offer or answer.
+      </t>
+
+      <t>An offerer and answerer MAY include a dcsa attribute for the following MSRP-specific SDP attributes, following the procedures defined for each attributes:
+       <list style='symbols'>
+        <t>defined in <xref target="RFC4975"/>: "accept-types", "accept-wrapped-types" and "max-size"</t>
+        <t>defined in <xref target="RFC4566"/>: "sendonly", "recvonly", "inactive" and "sendrecv"</t>
+        <t>defined in <xref target="RFC5547"/>: all the parameters related to MSRP file transfer. See <xref target="file_transfer"/>.</t>
        </list>
       </t>
 
-      <t>MSRP Connection Establishment for Media Anchoring (MSRP-CEMA) <xref target="RFC6714"/> is outside of the scope of this document. The msrp-cema attribute SHALL NOT be present.</t>
-
-      <t>As described in <xref target="session-opening"/> the path attribute is not used for transport establiment.</t>
-
-      <t>The SDP answer SHALL include zero or more corresponding dcsa attribute lines for each negotiated MSRP session, according to the MSRP-specific attribute negotiation rules in the corresponding specifications.</t>
-
-      <t>A new SDP offer/answer MAY update the MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description. The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.</t>
+      <t>
+        A subsequent offer or answer MAY update the previously negotiated MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description.
+        The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.
+      </t>
+     
      </section>
 
 
-     <section title="Use of the setup Attribute" anchor="use-of-setup-attribute">
+     <section title="Use of the dcsa embedded setup Attribute" anchor="use-of-setup-attribute">
 
-      <t>A dsca embedded setup attribute, as defined in <xref target="RFC4145"/>, MUST be used for MSRP sessions over data channels. It is used to negotiate which MSRP session endpoint assumes the active role as per Section 4.2.2 of <xref target="RFC6135"/> and Section 5.4 of <xref target="RFC4975"/>. It has no relationship with the DTLS connection establishment roles.
+      <t>
+        As described in <xref target="use-of-dcsa-attribute"/>, the usage of a dsca embedded setup attribute is mandated for MSRP sessions over data channels. 
+        It is used to negotiate which MSRP session endpoint assumes the active role as per Section 4.2.2 of <xref target="RFC6135"/> and
+        Section 5.4 of <xref target="RFC4975"/>. It has no relationship with the DTLS connection establishment roles <xref target="I-D.ietf-mmusic-sctp-sdp"/>.
       </t>
-      <t>The dcsa embedded setup attribute is of the form "a=dcsa:x setup:&lt;role&gt;", with x being the data channel's SCTP stream identifier, so that such attribute is explicitly associated with an MSRP session over a specific data channel.</t>
 
-      <t>It is considered an error if an MSRP over data channel description does not contain a dcsa embedded setup attribute.
-      </t>
-      <t>The SDP setup attribute can also be used in WebRTC data channel related SDP media descriptions as a media level attribute, which is associated with the corresponding UDP/DTLS/SCTP or TCP/DTLS/SCTP "m" line. Such an "a=setup" attribute is used as specified in <xref target="I-D.ietf-mmusic-sctp-sdp"/> in order to negotiate the establishment roles of the DTLS connection and has no relationship with the MSRP session.
+      <t>
+        The dcsa embedded setup attribute is of the form "a=dcsa:x setup:&lt;role&gt;", with x being the data channel's SCTP stream identifier, so that
+        such attribute is explicitly associated with an MSRP session over a specific data channel.
       </t>
 
      </section>
@@ -324,11 +342,13 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
        4A:AD:B9:B1:3F:82:18:3B:54:02:12:DF:3E:5D:49:6B:19:E5:7C:AB
    a=tls-id:4a756565cddef001be82
    a=dcmap:0 label="chat";subprotocol="MSRP"
+   a=dcsa:0 msrp-cema
    a=dcsa:0 setup:active
    a=dcsa:0 accept-types:message/cpim text/plain
    a=dcsa:0 path:msrps://bob.example.com:54111/si438dsaodes;dc
    a=dcmap:2 label="file transfer";subprotocol="MSRP"
    a=dcsa:2 sendonly
+   a=dcsa:2 msrp-cema
    a=dcsa:2 setup:active
    a=dcsa:2 accept-types:message/cpim
    a=dcsa:2 accept-wrapped-types:*
