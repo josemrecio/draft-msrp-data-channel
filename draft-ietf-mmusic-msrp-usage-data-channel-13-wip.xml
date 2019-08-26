@@ -246,9 +246,10 @@ transport  /= "dc" / 1*ALPHANUM
     <section title="SDP Considerations">
       <t>
         The generic SDP considerations, including the SDP Offer/Answer
-        proceudres, for negotiating a WebRTC data channel are defined in
+        procedures, for negotiating a WebRTC data channel are defined in
         <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>. This section
         defines the SDP considerations that are specific to an MSRP data channel.
+      </t>
 
      <section title="Use of the dcmap Attribute" anchor="use-of-dcmap-attribute">
 
@@ -423,7 +424,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
    <t>In one model, the gateway performs as a MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
 
-   <t>Alternately, the gateway can use CEMA procedures to provide transport level interworking between MSRP endpoints using different transport protocols as follows. For example, if the gateway is implemented on an Session Border Controller, it can use CEMA towars the inside network, using a non-data channel transport; but the gateway can not use CEMA towards endpoints using data channel transport. Path attributes SHALL NOT be used for transport level interworking.</t>
+   <t>Alternately, the gateway can use CEMA procedures to provide transport level interworking between MSRP endpoints using different transport protocols as follows. For example, if the gateway is implemented on an Session Border Controller, it can use CEMA towards the inside network, using a non-data channel transport; but the gateway can not use CEMA towards endpoints using data channel transport. Path attributes SHALL NOT be used for transport level interworking.</t>
 
    <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="end_to_end"/> apply to each peer, with the following additions:
 
