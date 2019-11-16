@@ -423,29 +423,18 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
    <t>In one model, the gateway performs as a MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
 
-   <t>Alternately, the gateway can use CEMA procedures to provide transport level interworking between MSRP endpoints using different transport protocols as follows. For example, if the gateway is implemented on an Session Border Controller, it can use CEMA towards the inside network, using a non-data channel transport; but the gateway can not use CEMA towards endpoints using data channel transport. Path attributes SHALL NOT be used for transport level interworking.</t>
+   <t>Alternately, the gateway can provide transport level interworking between MSRP endpoints using different transport protocols. In accordance with <xref target="session-opening"/>, path attributes SHALL NOT be used for transport level interworking.</t>
 
    <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="end_to_end"/> apply to each peer, with the following additions:
 
     <list style='symbols'>
+     <t>The gateway MUST use CEMA towards the non-data channel endpoint.</t>
+     <t>If the non-data channel endpoint does not support CEMA, transport level interworking mode is not possible, the gateway needs to act as an MSRP B2BUA.</t>
+     <t>The gateway MUST NOT modify the path attribute received from data channel or from non-data channel endpoints.</t>
+     <t>The gateway MUST NOT modify the setup value received from data channel or from non-data channel endpoints.</t>
      <t>The endpoint establishing an MSRP session using data channel transport SHALL NOT request inclusion of any relays, although it MAY interoperate with a peer that signals the use of relays.</t>
-
-     <t>The gateway receiving an SDP offer that includes a request to negotiate an MSRP session on a data channel can provide transport level interworking by forwarding TCP or TLS transport parameters in a new "m" line with the appropriate attributes within the forwarded SDP offer.
-
-      <list style="symbols">
-       <t>Especially, the gateway interworks the received MSRP over data channel associated dcsa embedded setup attribute with the media description level "a=setup" attribute of the MSRP over TCP or TLS "m" line within its forwarded SDP offer.
-       </t>
-      </list>
-     </t>
-
-     <t>Similarly, a gateway receiving an SDP offer to negotiate an MSRP session using TCP or TLS transport with an endpoint that only supports data channel transport for MSRP can provide transport level interworking by establishing a new data channel for the MSRP session with the target endpoint.
-
-      <list style="symbols">
-       <t>In this case the gateway interworks the received MSRP over TCP or TLS associated "a=setup" attribute with the dcsa embedded setup attribute of the generated MSRP over data channel description.
-       </t>
-      </list>
-     </t>
     </list>
+
    </t>
 
   </section>
