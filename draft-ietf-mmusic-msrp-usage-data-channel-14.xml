@@ -51,7 +51,7 @@
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
 
-<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-13"
+<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-14"
      ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
   ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
@@ -103,10 +103,6 @@
     <email>richard.ejzak@gmail.com</email>
     <!-- uri and facsimile elements may also be added -->
    </address>
-  </author>
-
-  <author fullname="Jerome Marcon" initials="J.M." surname="Marcon">
-   <organization>Unaffiliated</organization>
   </author>
 
   <author initials="J. M." surname="Recio" fullname="Jose M. Recio" role="editor">
@@ -552,6 +548,14 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
   </section>
 
  <section title="CHANGE LOG">
+
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-13'">
+   <t>
+    <list style="symbols">
+     <t>Clarify gateway procedures in accordance to mandatory use of CEMA.</t>
+    </list>
+   </t>
+  </section>
 
   <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-12'">
    <t>
