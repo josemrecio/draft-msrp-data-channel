@@ -133,7 +133,7 @@
 
   <abstract>
 
-   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be instantiated as a data channel sub-protocol, using the SDP offer/answer exchange-based generic data channel negotiation framework. Two network configurations are documented: a WebRTC end-to-end configuration (connecting two MSRP over data channel endpoints), and a gateway configuration (connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint).</t>
+   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as as WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint.</t>
 
   </abstract>
  </front>
@@ -154,7 +154,7 @@
     </list>
    </t>
 
-   <t>Compared to WebSockets, that provide a message passing protocol to applications with no direct access to TCP or TLS sockets, data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in other applications that use WebRTC for media or other purposes (IoT or telemetry in general, non-media data exchange, etc).</t>
+   <t>Compared to WebSockets, which provide a message passing protocol to applications with no direct access to TCP or TLS sockets, data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in other applications that use WebRTC for media or other purposes, such as IoT or telemetry in general, non-media data exchange, and so on.</t>
 
    <t>Considering an MSRP endpoint as an MSRP application that uses a WebRTC data channel, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
   </section>
@@ -187,7 +187,7 @@
   </section>
 
   <section title="SDP Considerations" anchor="sdp-cons">
-     <t>This section describes the network configuration where each MSRP endpoint is running MSRP over a data channel.</t>
+     <t>This section defines the SDP considerations which are specific to a MSRP data channel</t>
      <section title="MSRP URI">
       <t>This document extends the MSRP URI syntax <xref target="RFC4975"/> by defining the new transport parameter value "dc":</t>
        <figure align="left" title="">
@@ -330,7 +330,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
   <section title="MSRP Considerations" anchor="msrp-cons">
 
-   <t>This section describes the network configuration where each MSRP endpoint is running MSRP over a data channel.</t>
+   <t>This section describes the MSRP considerations specific to a MSRP data channel.</t>
     <section title="Session Mapping">
       <t>In this document, each MSRP session maps to one data channel exactly.</t>
     </section>
@@ -360,7 +360,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
   <section title="Gateway Considerations" anchor="gateway-cons">
 
-   <t>This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway.</t>
+   <t>This section describes the network configuration where one MSRP endpoint uses a MSRP data channel as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via a gateway.</t>
 
    <t>Specifically, a gateway can be configured to interwork an MSRP session over a data channel with a peer that does not support data channel transport in one of two ways.</t>
 
