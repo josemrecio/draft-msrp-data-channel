@@ -4,27 +4,22 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!-- One method to get references from the online citation libraries.
      There has to be one entity for each item to be referenced.
-     An alternate method (rfc include) is described in the references. -->
-
-<!ENTITY DATAREQ     SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-data-channel.xml">
-<!ENTITY DATAPROTO   SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-data-protocol.xml">
-<!ENTITY DCSDPNEG    SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-data-channel-sdpneg.xml">
-<!ENTITY SDPSCTP     SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-sctp-sdp.xml">
-<!ENTITY JSEP        SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-jsep.xml">
-<!ENTITY RFC2119     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC3264     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3264.xml">
-<!ENTITY RFC3758     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3758.xml">
-<!ENTITY RFC4145     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4145.xml">
-<!ENTITY RFC4960     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4960.xml">
-<!ENTITY RFC4566     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4566.xml">
-<!ENTITY RFC4566bis  SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-rfc4566bis.xml">
-<!ENTITY RFC4975     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4975.xml">
-<!ENTITY RFC5547     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5547.xml">
-<!ENTITY RFC6135     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6135.xml">
-<!ENTITY RFC6714     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6714.xml">
-<!ENTITY RFC7977     SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7977.xml">
+     An alternate method (rfc include) is described in the references. --><!ENTITY DATAREQ SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-data-channel.xml">
+<!ENTITY DATAPROTO SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-data-protocol.xml">
+<!ENTITY DCSDPNEG SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-data-channel-sdpneg.xml">
+<!ENTITY SDPSCTP SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-sctp-sdp.xml">
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC3758 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3758.xml">
+<!ENTITY RFC4145 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4145.xml">
+<!ENTITY RFC4960 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4960.xml">
+<!ENTITY RFC4566 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4566.xml">
+<!ENTITY RFC4566bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-rfc4566bis.xml">
+<!ENTITY RFC4975 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4975.xml">
+<!ENTITY RFC5547 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5547.xml">
+<!ENTITY RFC6135 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6135.xml">
+<!ENTITY RFC6714 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6714.xml">
+<!ENTITY RFC7977 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7977.xml">
 ]>
-
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
 <!-- For a complete list and description of processing instructions (PIs),
@@ -50,9 +45,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-
-<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-14"
-     ipr="trust200902">
+<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-14" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
   ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
   or pre5378Trust200902
@@ -89,8 +82,7 @@
    </address>
   </author>
 
-  <author initials="J." surname="Stoetzer-Bradler" 
-          fullname="Juergen Stoetzer-Bradler">
+  <author initials="J." surname="Stoetzer-Bradler" fullname="Juergen Stoetzer-Bradler">
    <organization>Unaffiliated</organization>
    <address>
     <email>Juergen.S-B.ietf@email.de</email>
@@ -112,7 +104,7 @@
    </address>
   </author>
 
-  <date year="2019" />
+  <date year="2019"/>
 
   <!-- If the month and year are both specified and are the current ones, 
    xml2rfc will fill
@@ -149,12 +141,12 @@
  <middle>
   <section title="Introduction" anchor="introduction">
 
-   <t>The Message Session Relay Protocol (MSRP) <xref target="RFC4975"></xref> is a protocol for transmitting a series of related instant messages in the context of a session. In addition to instant messaging, MSRP can also be used for image sharing or file transfer. MSRP is currently defined to work over TCP and TLS connections, and over a WebSocket subprotocol specified by <xref target="RFC7977"></xref>.</t>
+   <t>The Message Session Relay Protocol (MSRP) <xref target="RFC4975"/> is a protocol for transmitting a series of related instant messages in the context of a session. In addition to instant messaging, MSRP can also be used for image sharing or file transfer. MSRP is currently defined to work over TCP and TLS connections, and over a WebSocket subprotocol specified by <xref target="RFC7977"/>.</t>
 
-   <t>This document defines the negotiation and transport of this MSRP protocol over data channels, where a data channel is a bi-directional communication channel running on top of SCTP/DTLS (as per <xref target="I-D.ietf-rtcweb-data-channel"/>) and where MSRP is instantiated as a sub-protocol of this data channel. The MSRP protocol negotiation defined in this document is based on the generic SDP offer/answer exchange based data channel negotiation as specified in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
+   <t>This document specifies the negotiation and transport of MSRP over a WebRTC data channel <xref target="I-D.ietf-rtcweb-data-channel"/>. Negotiation is carried out as specified in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/> and MSRP is transported as a sub-protocol of a WebRTC data channel.</t>
 
    <t>Defining MSRP as a data channel sub-protocol has many benefits:
-    <list style='symbols'>
+    <list style="symbols">
      <t>provides to applications a proven protocol enabling instant messaging, file transfer, image sharing</t>
      <t>integrates those features with other RTCWeb voice, video and data features</t>
      <t>leverages the SDP-based negotiation already defined for MSRP</t>
@@ -164,94 +156,57 @@
 
    <t>Compared to WebSockets, that provide a message passing protocol to applications with no direct access to TCP or TLS sockets, data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in other applications that use WebRTC for media or other purposes (IoT or telemetry in general, non-media data exchange, etc).</t>
 
-   <t>Considering an MSRP endpoint being an MSRP application that uses data channel from WebRTC specifications <xref target="I-D.ietf-rtcweb-data-channel"/>, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
-
+   <t>Considering an MSRP endpoint as an MSRP application that uses a WebRTC data channel, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
   </section>
 
   <section title="Conventions">
-   <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119"></xref>.</t>
+   <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119"/>.</t>
  </section>
 
-  <section title="Terminology" anchor="terminology">
-   <t>This document uses the following terms:
-    <list style='hanging'>
-     <t>Data channel: A WebRTC data channel as specified in 
-        <xref target="I-D.ietf-rtcweb-data-channel"/>.</t>
-
-     <t>MSRP data channel: A data channel specifically used 
-        to transport the messages of one MSRP session.</t>
-
-     <t>External negotiation: Data channel negotiation based 
-        on out-of-band or in-band mechanisms other than the Data 
-        Channel Establishment Protocol specified in 
-        <xref target="I-D.ietf-rtcweb-data-protocol"/>.</t>
-
-     <t>In-band: Transmission through the peer-to-peer SCTP 
-        association.</t>
-
-     <t>Out-of-band: Transmission through the call control signaling 
-        path, e.g., using 
-        <xref target="I-D.ietf-rtcweb-jsep">JSEP</xref> 
-        and the SDP Offer/Answer model 
-        <xref target="RFC3264"></xref>.</t>
-
-     <t>Peer: From the perspective of one of the agents in a session, 
-        its peer is the other agent. Specifically, from the perspective 
-        of the SDP offerer, the peer is the SDP answerer. From the 
-        perspective of the SDP answerer, the peer is the SDP offerer.</t>
-    </list>
-   </t>
-  </section>
-
-  <section title="Principles">
+  <section title="WebRTC Data Channel Considerations">
 
    <section title="MSRP Data Channel" anchor="msrp-data-channel">
-    <t>In this document, an MSRP data channel is a data channel for which the instantiated sub-protocol is "MSRP", and where the MSRP-related negotiation is done as part of the SDP-based external negotiation method defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
-   </section>
-
-   <section title="Session Mapping">
-    <t>In this design, the MSRP session maps to the SCTP association and the "SCTP stream pair" assigned to the data channel, and each MSRP session maps to one data channel exactly.</t>
-   </section>
-
-   <section title="MSRP URI">
-    <t>This document extends the MSRP URI syntax <xref target="RFC4975"/> by defining the new transport parameter value "dc":</t>
-
-     <figure align="left" title="">
-      <artwork align="left"><![CDATA[
-transport  /= "dc" / 1*ALPHANUM
-              ; Add "dc" to existing transports per [RFC4975]
-]]></artwork>
-     </figure>
-    <t>MSRP design provides for new transport bindings, see Section 6 of <xref target="RFC4975"/>, MSRP implementations are expected to allow unrecognized transports for which there is no need to establish a connection to the resource described by the URI, as it's the case of data channels (<xref target="session-opening"/>).</t>
-
-   </section>
-
-   <section title="msrp-scheme">
-    <t>The msrp-scheme portion of the MSRP-URI that represents an MSRP data channel endpoint (used in the SDP path attribute and in the MSRP message headers) is always "msrps", which indicates that the MSRP data channel is always secured using DTLS as described in <xref target="I-D.ietf-rtcweb-data-channel"/>.</t>
+    <t>In this document, an MSRP data channel is a data channel for which the instantiated sub-protocol is "MSRP", and where the channel is negotiated using the SDP-based external negotiation method defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
+    <t>The following WebRTC data channel property values [I-D.ietf-rtcweb-data-channel] apply to a MSRP data channel:</t>
+    <texttable title="">
+      <ttcol align="left" width="30%">Property</ttcol>
+      <ttcol align="left">Value</ttcol>
+      <c>Subprotocol Identifier</c>
+      <c>MSRP</c>
+      <c>Transmission reliability</c>
+      <c>reliable</c>
+      <c>Transmission order</c>
+      <c>in-order</c>
+      <c>Label</c>
+      <c>See 
+        <xref target="use-of-dcmap-attribute"/>
+      </c>
+    </texttable>
    </section>
 
   </section>
 
-  <section title="End-to-End Configuration" anchor="end_to_end">
-
-   <t>This section describes the network configuration where each MSRP endpoint is running MSRP over a data channel.</t>
-
-   <section title="Basic MSRP Support">
-
-    <section title="SDP Considerations">
-      <t>
-        The generic SDP considerations, including the SDP Offer/Answer
-        procedures, for negotiating a WebRTC data channel are defined in
-        <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>. This section
-        defines the SDP considerations that are specific to an MSRP data channel.
-      </t>
+  <section title="SDP Considerations" anchor="sdp-cons">
+     <t>This section describes the network configuration where each MSRP endpoint is running MSRP over a data channel.</t>
+     <section title="MSRP URI">
+      <t>This document extends the MSRP URI syntax <xref target="RFC4975"/> by defining the new transport parameter value "dc":</t>
+       <figure align="left" title="">
+        <artwork align="left"><![CDATA[
+  transport  /= "dc" / 1*ALPHANUM
+                ; Add "dc" to existing transports per [RFC4975] ]]></artwork>
+       </figure>
+      <t>MSRP design provides for new transport bindings, see Section 6 of <xref target="RFC4975"/>, MSRP implementations are expected to allow unrecognized transports for which there is no need to establish a connection to the resource described by the URI, as it's the case of data channels (<xref target="use-of-dcsa-attribute"/>).</t>
+     </section>
+     <section title="msrp-scheme">
+      <t>The msrp-scheme portion of the MSRP-URI that represents an MSRP data channel endpoint (used in the SDP path attribute and in the MSRP message headers) is always "msrps", which indicates that the MSRP data channel is always secured using DTLS as described in <xref target="I-D.ietf-rtcweb-data-channel"/>.</t>
+     </section>
 
      <section title="Use of the dcmap Attribute" anchor="use-of-dcmap-attribute">
 
       <t>An offerer and answerer MUST, in each offer and answer, include a dcmap attribute line (<xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) within the media description of the SCTP association for each MSRP data channel session to be negotiated.</t>
 
       <t>The attribute includes the following data channel parameters:
-       <list style='symbols'>
+       <list style="symbols">
         <t>"label=" labelstring</t>
         <t>"subprotocol=" "MSRP"</t>
        </list>
@@ -282,7 +237,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
       <t>
         An offerer and answerer MUST include a dcsa attribute for the following MSRP-specific SDP attributes:
-       <list style='symbols'>
+       <list style="symbols">
         <t>defined in <xref target="RFC4975"/>: "path".</t>
         <t>defined in <xref target="RFC6714"/>: "msrp-cema".</t>
         <t>defined in <xref target="RFC6135"/>: "setup". See <xref target="use-of-setup-attribute"/></t>
@@ -293,17 +248,16 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
       </t>
 
       <t>An offerer and answerer MAY include a dcsa attribute for the following MSRP-specific SDP attributes, following the procedures defined for each attributes:
-       <list style='symbols'>
+       <list style="symbols">
         <t>defined in <xref target="RFC4975"/>: "accept-types", "accept-wrapped-types" and "max-size"</t>
         <t>defined in <xref target="RFC4566"/>: "sendonly", "recvonly", "inactive" and "sendrecv"</t>
-        <t>defined in <xref target="RFC5547"/>: all the parameters related to MSRP file transfer. See <xref target="file_transfer"/>.</t>
+        <t>defined in <xref target="RFC5547"/>: all the parameters related to MSRP file transfer. See <xref target="file_transfer_sdp"/>.</t>
        </list>
       </t>
 
-      <t>
-        A subsequent offer or answer MAY update the previously negotiated MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description.
-        The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.
-      </t>
+      <t>A subsequent offer or answer MAY update the previously negotiated MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description. The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.</t>
+
+      <t>The path attribute SHALL NOT be used for transport negotiation.</t>
      
      </section>
 
@@ -321,6 +275,16 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
         such attribute is explicitly associated with an MSRP session over a specific data channel.
       </t>
 
+     </section>
+
+    <section title="Session Closing" anchor="session-closing-sdp">
+     <t>The closure of an MSRP session MUST be signaled via an SDP offer/answer exchange which removes the "a=dcmap:" and "a=dcsa:" attribute lines associated with the MSRP session from the associated DTLS/SCTP based media description. This results in the associated data channel being closed as well as per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>, where the actual data channel closure procedure is typically initiated by the SDP answerer right after having accepted the SDP offer.</t>
+     <t>The port value for the "m" line SHOULD NOT be changed (e.g. to zero) when closing an MSRP session (unless all data channels are being closed and the SCTP association is no longer needed), since this would close the SCTP association and impact all of the data channels. In all cases in <xref target="RFC4975"/> where the procedure calls for setting the port to zero for the MSRP "m" line in an SDP offer for TCP transport, the SDP offerer of an MSRP session with data channel transport SHALL remove the corresponding dcmap and dcsa attributes.</t>
+     <t>The SDP answerer must ensure that no dcmap or dcsa attributes are present in the SDP answer if no corresponding attributes are present in the received SDP offer.</t>
+    </section>
+
+     <section title="Support for MSRP File Transfer Function" anchor="file_transfer_sdp">
+       <t>SDP attributes specified in <xref target="RFC5547"/> for a file transfer "m" line are embedded as subprotocol-specific attributes using the syntax defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
      </section>
 
      <section title="Example SDP Negotiation" anchor="example-sdp-negotiation">
@@ -361,57 +325,40 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
       </figure>
 
      </section>
-    </section>
-
-    <section title="Session Opening" anchor="session-opening">
-
-     <t><xref target="use-of-setup-attribute"/> describes how the active MSRP session endpoint role is negotiated. The active MSRP session endpoint uses the data channel established for this MSRP session by the generic data channel opening procedure defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>. The path attribute SHALL NOT be used for transport negotiation.</t>
-
-     <t>As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP session endpoint. In order to do this the active MSRP endpoint sends an MSRP SEND message (empty or not) to the other MSRP endpoint.</t>
-
-    </section>
-
-    <section title="Data Framing" anchor="data-framing">
-
-     <t>Each text-based MSRP message is sent on the corresponding SCTP stream using standard MSRP framing and chunking procedures, as defined in <xref target="RFC4975"/>, with each MSRP chunk delivered in a single SCTP user message. Therefore all sent MSRP chunks including the MSRP chunk header MUST have lengths of less than or equal to the value of the peer's "a=max-message-size" attribute, which is associated with the data channel's SCTP association.</t>
-
-    </section>
-
-    <section title="Data Sending and Reporting">
-
-     <t>Data sending and reporting procedures SHALL conform to RFC 4975.</t>
-
-    </section>
-
-    <section title="Session Closing" anchor="session-closing">
-
-     <t> The closure of an MSRP session MUST be signaled via an SDP offer/answer exchange which removes the "a=dcmap:" and "a=dcsa:" attribute lines associated with the MSRP session from the associated DTLS/SCTP based media description. This results in the associated data channel being closed as well as per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>, where the actual data channel closure procedure is typically initiated by the SDP answerer right after having accepted the SDP offer.</t>
-
-     <t>The port value for the "m" line SHOULD NOT be changed (e.g. to zero) when closing an MSRP session (unless all data channels are being closed and the SCTP association is no longer needed), since this would close the SCTP association and impact all of the data channels. In all cases in <xref target="RFC4975"/> where the procedure calls for setting the port to zero for the MSRP "m" line in an SDP offer for TCP transport, the SDP offerer of an MSRP session with data channel transport SHALL remove the corresponding dcmap and dcsa attributes.</t>
-
-     <t>The SDP answerer must ensure that no dcmap or dcsa attributes are present in the SDP answer if no corresponding attributes are present in the received SDP offer.</t>
-
-    </section>
-   </section>
-
-   <section title="Support for MSRP File Transfer Function" anchor="file_transfer">
-
-    <t><xref target="RFC5547"/> defines an end-to-end file transfer method based on MSRP and the SDP offer/answer mechanism. This file transfer method is also usable by MSRP endpoints using data channels, with the following considerations:
-
-     <list style='symbols'>
-      <t>As an MSRP session maps to one data channel, a file transfer session maps also to one data channel.</t>
-
-      <t>SDP attributes specified in <xref target="RFC5547"/> for a file transfer "m" line are embedded as subprotocol-specific attributes using the syntax defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
-
-      <t>Once the file transfer is complete, the same data channel MAY be reused for another file transfer.</t>
-     </list>
-    </t>
-
-   </section>
-
   </section>
 
-  <section title="Gateway Configuration" anchor="gateway-config">
+
+  <section title="MSRP Considerations" anchor="msrp-cons">
+
+   <t>This section describes the network configuration where each MSRP endpoint is running MSRP over a data channel.</t>
+    <section title="Session Mapping">
+      <t>In this document, each MSRP session maps to one data channel exactly.</t>
+    </section>
+    <section title="Session Opening" anchor="session-opening-msrp">
+     <t><xref target="use-of-setup-attribute"/> describes how the active MSRP session endpoint role is negotiated. The active MSRP session endpoint uses the data channel established for this MSRP session by the generic data channel opening procedure defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
+     <t>As soon as the WebRTC data channel is opened, the MSRP session is actually opened by the active MSRP session endpoint. In order to do this the active MSRP endpoint sends an MSRP SEND message (empty or not) to the other MSRP endpoint.</t>
+    </section>
+    <section title="Session Closing" anchor="session-closing">
+     <t>The closure of an MSRP session MUST be signaled via SDP following the requirements in <xref target="session-closing-sdp"/></t>
+    </section>
+    <section title="Data Framing" anchor="data-framing">
+     <t>Each text-based MSRP message is sent on the corresponding SCTP stream using standard MSRP framing and chunking procedures, as defined in <xref target="RFC4975"/>, with each MSRP chunk delivered in a single SCTP user message. Therefore all sent MSRP chunks including the MSRP chunk header MUST have lengths of less than or equal to the value of the peer's "a=max-message-size" attribute, which is associated with the data channel's SCTP association.</t>
+    </section>
+    <section title="Data Sending and Reporting">
+      <t>Data sending and reporting procedures SHALL conform to <xref target="RFC4975"/>.</t>
+    </section>
+    <section title="Support for MSRP File Transfer Function" anchor="file_transfer_msrp">
+     <t><xref target="RFC5547"/> defines an end-to-end file transfer method based on MSRP and the SDP offer/answer mechanism. This file transfer method is also usable by MSRP endpoints using data channels, with the following considerations:
+      <list style="symbols">
+       <t>As an MSRP session maps to one data channel, a file transfer session maps also to one data channel.</t>
+       <t>SDP attributes are negotiated as specified in <xref target="file_transfer_sdp"/>.</t>
+       <t>Once the file transfer is complete, the same data channel MAY be reused for another file transfer.</t>
+      </list>
+     </t>
+    </section>
+  </section>
+
+  <section title="Gateway Considerations" anchor="gateway-cons">
 
    <t>This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway.</t>
 
@@ -419,11 +366,11 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
    <t>In one model, the gateway performs as a MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
 
-   <t>Alternately, the gateway can provide transport level interworking between MSRP endpoints using different transport protocols. In accordance with <xref target="session-opening"/>, path attributes SHALL NOT be used for transport level interworking.</t>
+   <t>Alternately, the gateway can provide transport level interworking between MSRP endpoints using different transport protocols. In accordance with <xref target="use-of-dcsa-attribute"/>, path attributes SHALL NOT be used for transport level interworking.</t>
 
-   <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="end_to_end"/> apply to each peer, with the following additions:
+   <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="msrp-cons"/> and <xref target="sdp-cons"/> apply to each peer, with the following additions:
 
-    <list style='symbols'>
+    <list style="symbols">
      <t>The gateway MUST use CEMA towards the non-data channel endpoint.</t>
      <t>If the non-data channel endpoint does not support CEMA, transport level interworking mode is not possible, the gateway needs to act as an MSRP B2BUA.</t>
      <t>The gateway MUST NOT modify the path attribute received from data channel or from non-data channel endpoints.</t>
@@ -446,8 +393,8 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
     </t>
 
      <texttable title="">
-       <ttcol align='left' width='30%'/>
-       <ttcol align='left'/>
+       <ttcol align="left" width="30%"/>
+       <ttcol align="left"/>
 
        <c>Subprotocol Identifier:</c>
        <c>MSRP</c>
@@ -476,8 +423,8 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
      </t>
 
      <texttable title="">
-       <ttcol align='left' width='35%'/>
-       <ttcol align='left' width='65%'/>
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
 
        <c>Contact name:</c>
        <c>MMUSIC Chairs</c>
@@ -674,13 +621,13 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
      <t>Addition of new <xref target="use-of-setup-attribute"/> describing how the active MSRP session endpoint role is negotiated.
      </t>
 
-     <t>Extension of first paragraph of <xref target="session-opening"/> with new first sentence "<xref target="use-of-setup-attribute"/> describes how the active MSRP session endpoint role is negotiated.".
+     <t>Extension of first paragraph of session-opening with new first sentence "<xref target="use-of-setup-attribute"/> describes how the active MSRP session endpoint role is negotiated.".
      </t>
 
-     <t>First sentence of second paragraph in <xref target="session-opening"/> was "As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP endpoint which sends an MSRP SEND message (empty or not) to the other MSRP endpoint." Replacement of this sentence with "As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP endpoint. In order to do this the active MSRP endpoint sends an MSRP SEND message (empty or not) to the other MSRP endpoint."
+     <t>First sentence of second paragraph in session-opening was "As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP endpoint which sends an MSRP SEND message (empty or not) to the other MSRP endpoint." Replacement of this sentence with "As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP endpoint. In order to do this the active MSRP endpoint sends an MSRP SEND message (empty or not) to the other MSRP endpoint."
      </t>
 
-     <t>Addition of setup attribute specific behavior descriptions of data channel to TCP or TLS interworking gateways in <xref target="gateway-config"/>.
+     <t>Addition of setup attribute specific behavior descriptions of data channel to TCP or TLS interworking gateways in <xref target="gateway-cons"/>.
      </t>
 
     </list>
@@ -734,13 +681,13 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
      <t>Replacement of previous document title "MSRP over SCTP/DTLS data channels" with "MSRP over Data Channels" in order to align with the terminology used in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
 
-     <t>In <xref target="terminology"/> "WebRTC data channel" was defined as "A bidirectional channel consisting of paired SCTP outbound and inbound streams." Replacement of this definition with "Data channel: A WebRTC data channel as specified in <xref target="I-D.ietf-rtcweb-data-channel"/>", and consistent usage of either "data channel" or "MSRP data channel" in the remainder of the document."</t>
+     <t>In "terminology", "WebRTC data channel" was defined as "A bidirectional channel consisting of paired SCTP outbound and inbound streams." Replacement of this definition with "Data channel: A WebRTC data channel as specified in <xref target="I-D.ietf-rtcweb-data-channel"/>", and consistent usage of either "data channel" or "MSRP data channel" in the remainder of the document."</t>
 
      <t>In the introduction replacement of references to <xref target="I-D.ietf-rtcweb-data-protocol"/> with a reference to <xref target="I-D.ietf-rtcweb-data-channel"/>.</t>
 
      <t>Consistent usage of '"m" line' in whole document as per <xref target="RFC4566"/>.</t>
 
-     <t>In the <xref target="gateway-config">gateway configuration section</xref> replacement of the first sentence "This section describes the network configuration where one endpoint runs MSRP over a WebRTC SCTP/DTLS connection, the other MSRP endpoint runs MSRP over one or more  TLS/TCP connections, and the two endpoints interwork via an MSRP gateway" with "This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway".</t>
+     <t>In the <xref target="gateway-cons">gateway configuration section</xref> replacement of the first sentence "This section describes the network configuration where one endpoint runs MSRP over a WebRTC SCTP/DTLS connection, the other MSRP endpoint runs MSRP over one or more  TLS/TCP connections, and the two endpoints interwork via an MSRP gateway" with "This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway".</t>
 
     </list>
    </t>
@@ -792,8 +739,6 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
  <references title="Normative References">
 
    &RFC2119;
-   &JSEP;
-   &RFC3264;
    &DATAPROTO;
    &DATAREQ;
    &DCSDPNEG;
