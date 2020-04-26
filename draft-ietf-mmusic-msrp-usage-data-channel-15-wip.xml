@@ -186,8 +186,7 @@
 
   </section>
 
-  <section title="SDP Considerations">
-    <section title="End-to-End Configuration" anchor="end_to_end_sdp">
+  <section title="SDP Considerations" anchor="sdp-cons">
      <t>This section describes the network configuration where each MSRP endpoint is running MSRP over a data channel.</t>
      <section title="MSRP URI">
       <t>This document extends the MSRP URI syntax <xref target="RFC4975"/> by defining the new transport parameter value "dc":</t>
@@ -326,12 +325,10 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
       </figure>
 
      </section>
-    </section>
   </section>
 
 
-  <section title="MSRP Considerations">
-  <section title="End-to-End Configuration" anchor="end_to_end_msrp">
+  <section title="MSRP Considerations" anchor="msrp-cons">
 
    <t>This section describes the network configuration where each MSRP endpoint is running MSRP over a data channel.</t>
     <section title="Session Mapping">
@@ -360,9 +357,8 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
      </t>
     </section>
   </section>
-  </section>
 
-  <section title="Gateway Configuration" anchor="gateway-config">
+  <section title="Gateway Considerations" anchor="gateway-cons">
 
    <t>This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway.</t>
 
@@ -372,7 +368,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
    <t>Alternately, the gateway can provide transport level interworking between MSRP endpoints using different transport protocols. In accordance with <xref target="use-of-dcsa-attribute"/>, path attributes SHALL NOT be used for transport level interworking.</t>
 
-   <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="end_to_end_msrp"/> and <xref target="end_to_end_sdp"/> apply to each peer, with the following additions:
+   <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="msrp-cons"/> and <xref target="sdp-cons"/> apply to each peer, with the following additions:
 
     <list style="symbols">
      <t>The gateway MUST use CEMA towards the non-data channel endpoint.</t>
@@ -631,7 +627,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
      <t>First sentence of second paragraph in session-opening was "As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP endpoint which sends an MSRP SEND message (empty or not) to the other MSRP endpoint." Replacement of this sentence with "As soon as this data channel is opened, the MSRP session is actually opened by the active MSRP endpoint. In order to do this the active MSRP endpoint sends an MSRP SEND message (empty or not) to the other MSRP endpoint."
      </t>
 
-     <t>Addition of setup attribute specific behavior descriptions of data channel to TCP or TLS interworking gateways in <xref target="gateway-config"/>.
+     <t>Addition of setup attribute specific behavior descriptions of data channel to TCP or TLS interworking gateways in <xref target="gateway-cons"/>.
      </t>
 
     </list>
@@ -691,7 +687,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
      <t>Consistent usage of '"m" line' in whole document as per <xref target="RFC4566"/>.</t>
 
-     <t>In the <xref target="gateway-config">gateway configuration section</xref> replacement of the first sentence "This section describes the network configuration where one endpoint runs MSRP over a WebRTC SCTP/DTLS connection, the other MSRP endpoint runs MSRP over one or more  TLS/TCP connections, and the two endpoints interwork via an MSRP gateway" with "This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway".</t>
+     <t>In the <xref target="gateway-cons">gateway configuration section</xref> replacement of the first sentence "This section describes the network configuration where one endpoint runs MSRP over a WebRTC SCTP/DTLS connection, the other MSRP endpoint runs MSRP over one or more  TLS/TCP connections, and the two endpoints interwork via an MSRP gateway" with "This section describes the network configuration where one MSRP endpoint uses data channels as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via an MSRP gateway".</t>
 
     </list>
    </t>
