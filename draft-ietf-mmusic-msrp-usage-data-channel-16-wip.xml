@@ -66,41 +66,24 @@
 
   <!-- Another author who claims to be an editor -->
 
-  <author initials="K. E." surname="Drage" fullname="Keith Drage" role="editor">
-   <organization>Unaffiliated</organization>
-   <address>
-    <email>drageke@ntlworld.com
-    </email>
-   </address>
-  </author>
-
-  <author initials="M. R." surname="Makaraju" fullname="Maridi R. Makaraju (Raju)">
-   <organization>Unaffiliated</organization>
-   <address>
-    <email>mmraju@gmail.com
-    </email>
-   </address>
-  </author>
-
-  <author initials="J." surname="Stoetzer-Bradler" fullname="Juergen Stoetzer-Bradler">
-   <organization>Unaffiliated</organization>
-   <address>
-    <email>Juergen.S-B.ietf@email.de</email>
-   </address>
-  </author>
-
-  <author fullname="Richard Ejzak" initials="R.P." surname="Ejzak">
-   <organization>Unaffiliated</organization>
-   <address>
-    <email>richard.ejzak@gmail.com</email>
-    <!-- uri and facsimile elements may also be added -->
-   </address>
-  </author>
-
   <author initials="J. M." surname="Recio" fullname="Jose M. Recio" role="editor">
+   <organization>Unaffiliated</organization>
    <address>
     <email>jose@ch3m4.com
     </email>
+   </address>
+  </author>
+
+  <author initials="C." surname="Holmberg" fullname="Christer Holmberg">
+   <organization>Ericsson</organization>
+   <address>
+    <postal>
+     <street>Hirsalantie 11</street>
+     <city>Jorvas 02420</city>
+     <region/>
+     <country>Finland</country>
+    </postal>
+    <email>christer.holmberg@ericsson.com</email>
    </address>
   </author>
 
@@ -490,7 +473,9 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
 
   <section title="Acknowledgments">
 
-   <t>The authors wish to acknowledge the borrowing of ideas from another internet draft by Peter Dunkley and Gavin Llewellyn, and to thank Flemming Andreasen, Christian Groves, Christer Holmberg, Paul Kyzivat, Jonathan Lennox, Uwe Rauschenbach, Albrecht Schwarz and Keith Drage for their invaluable comments.</t>
+   <t>The authors wish to acknowledge the borrowing of ideas from another internet draft by Peter Dunkley and Gavin Llewellyn, and to thank Flemming Andreasen, Christian Groves, Paul Kyzivat, Jonathan Lennox, Uwe Rauschenbach, Albrecht Schwarz, and Keith Drage for their invaluable comments.</t>
+   <t>Richard Ejzak, Keith Drage and Juergen Stoetzer-Bradler contributed an earlier version, before the draft was re-adopted.</t>
+   <t>Maridi R. Makaraju (Raju) contributed valuable comments after the draft was re-adopted.</t>
 
   </section>
 
@@ -761,42 +746,6 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
    &RFC7977;
 
  </references>
-
- <!--
- <references title="Informative References">
- -->
-
-  <!--
-  <reference anchor='WebRtcAPI' target='http://www.w3.org/TR/2012/WD-webrtc-20120821'>
-   <front>
-    <title>WebRTC 1.0: Real-time Communication Between Browsers</title>
-
-    <author initials='A.' surname='Bergkvist' fullname='Adam Bergkvist'>
-    <organization />
-    </author>
-
-    <author initials='D.' surname='Burnett' fullname='Daniel C. Burnett'>
-    <organization />
-    </author>
-
-    <author initials='A.' surname='Narayanan' fullname='Anant Narayanan'>
-    <organization />
-    </author>
-
-    <author initials='C.' surname='Jennings' fullname='Cullen Jennings'>
-    <organization />
-    </author>
-
-    <date month='August' day='21' year='2012' />
-   </front>
-   <seriesInfo name='World Wide Web Consortium WD' value='WD-webrtc-20120821' />
-   <format type='HTML' target='http://www.w3.org/TR/2012/WD-webrtc-20120821' />
-  </reference>
-  -->
-
- <!--
- </references>
- -->
 
 </back>
 
