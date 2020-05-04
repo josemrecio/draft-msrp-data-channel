@@ -133,7 +133,7 @@
 
   <abstract>
 
-   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as as WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint.</t>
+   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as a WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint.</t>
 
   </abstract>
  </front>
@@ -187,7 +187,7 @@
   </section>
 
   <section title="SDP Considerations" anchor="sdp-cons">
-     <t>This section defines the SDP considerations which are specific to a MSRP data channel</t>
+     <t>This section describes the SDP considerations which are specific to a MSRP data channel</t>
      <section title="MSRP URI">
       <t>This document extends the MSRP URI syntax <xref target="RFC4975"/> by defining the new transport parameter value "dc":</t>
        <figure align="left" title="">
