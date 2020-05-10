@@ -152,7 +152,7 @@
     <t>In this document, an MSRP data channel is a data channel for which the instantiated sub-protocol is "MSRP", and where the channel is negotiated using the SDP-based external negotiation method defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
     <t>The following WebRTC data channel property values [I-D.ietf-rtcweb-data-channel] apply to a MSRP data channel:</t>
     <texttable title="">
-      <ttcol align="left" width="30%">Property</ttcol>
+      <ttcol align="left">Property</ttcol>
       <ttcol align="left">Value</ttcol>
       <c>Subprotocol Identifier</c>
       <c>msrp</c>
@@ -175,7 +175,7 @@
       <t>This document extends the MSRP URI syntax <xref target="RFC4975"/> by defining the new transport parameter value "dc":</t>
        <figure align="left" title="">
         <artwork align="left"><![CDATA[
-  transport  /= "dc" / 1*ALPHANUM
+  transport  /= "dc"
                 ; Add "dc" to existing transports per [RFC4975] ]]></artwork>
        </figure>
       <t>MSRP design provides for new transport bindings, see Section 6 of <xref target="RFC4975"/>, MSRP implementations are expected to allow unrecognized transports for which there is no need to establish a connection to the resource described by the URI, as it's the case of data channels (<xref target="use-of-dcsa-attribute"/>).</t>
@@ -205,7 +205,7 @@
 
       <figure align="left" title="">
        <artwork align="left"><![CDATA[
-a=dcmap:2 label="chat";subprotocol="MSRP"
+a=dcmap:2 label="chat";subprotocol="msrp"
 ]]></artwork>
       </figure>
 
@@ -219,7 +219,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
       </t>
 
       <t>
-        An offerer and answerer MUST include a dcsa attribute for the following MSRP-specific SDP attributes:
+        An offerer and answerer MUST include a dcsa attribute for each of the following MSRP-specific SDP attributes:
        <list style="symbols">
         <t>defined in <xref target="RFC4975"/>: "path".</t>
         <t>defined in <xref target="RFC6714"/>: "msrp-cema".</t>
@@ -230,7 +230,7 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
         It is considered a protocol error if one or more of the dcsa embedded attributes listed above are not included in an offer or answer.
       </t>
 
-      <t>An offerer and answerer MAY include a dcsa attribute for the following MSRP-specific SDP attributes, following the procedures defined for each attributes:
+      <t>An offerer and answerer MAY include a dcsa attribute for any of the following MSRP-specific SDP attributes, following the procedures defined for each attributes:
        <list style="symbols">
         <t>defined in <xref target="RFC4975"/>: "accept-types", "accept-wrapped-types" and "max-size"</t>
         <t>defined in <xref target="RFC4566"/>: "sendonly", "recvonly", "inactive" and "sendrecv"</t>
@@ -372,25 +372,8 @@ a=dcmap:2 label="chat";subprotocol="MSRP"
       <t>NOTE to RFC Editor: Please replace "XXXX" with the number of this RFC.
     </t>
 
-    <t>This document adds the subprotocol identifier "MSRP" to the "WebSocket Subprotocol Name Registry" as follows:
+    <t>This document adds a reference to the subprotocol identifier "msrp" in the "WebSocket Subprotocol Name Registry"
     </t>
-
-     <texttable title="">
-       <ttcol align="left" width="30%"/>
-       <ttcol align="left"/>
-
-       <c>Subprotocol Identifier:</c>
-       <c>MSRP</c>
-
-       <c>Subprotocol Common Name:</c>
-       <c>MSRP</c>
-
-       <c>Subprotocol Definition:</c>
-       <c>RFCXXXX</c>
-
-       <c>Reference:</c>
-       <c>RFCXXXX</c>
-     </texttable>
 
    </section>
 
