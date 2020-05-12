@@ -9,11 +9,7 @@
 <!ENTITY DCSDPNEG SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-data-channel-sdpneg.xml">
 <!ENTITY SDPSCTP SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-sctp-sdp.xml">
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC3758 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3758.xml">
-<!ENTITY RFC4145 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4145.xml">
-<!ENTITY RFC4960 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4960.xml">
 <!ENTITY RFC4566 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4566.xml">
-<!ENTITY RFC4566bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-mmusic-rfc4566bis.xml">
 <!ENTITY RFC4975 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4975.xml">
 <!ENTITY RFC5547 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5547.xml">
 <!ENTITY RFC6135 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6135.xml">
@@ -116,7 +112,7 @@
 
   <abstract>
 
-   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as a WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint.</t>
+   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as a WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint. This document updates <xref target="RFC4975"/></t>
 
   </abstract>
  </front>
@@ -124,7 +120,7 @@
  <middle>
   <section title="Introduction" anchor="introduction">
 
-   <t>The Message Session Relay Protocol (MSRP) <xref target="RFC4975"/> is a protocol for transmitting a series of related instant messages in the context of a session. In addition to instant messaging, MSRP can also be used for image sharing or file transfer. MSRP is currently defined to work over TCP and TLS connections, and over a WebSocket subprotocol specified by <xref target="RFC7977"/>.</t>
+   <t>The Message Session Relay Protocol (MSRP) <xref target="RFC4975"/> is a protocol for transmitting a series of related instant messages in the context of a session. In addition to instant messaging, MSRP can also be used for image sharing or file transfer. MSRP was initially defined in <xref target="RFC4975"/> to work over TCP and TLS connections, and over a WebSocket subprotocol specified by <xref target="RFC7977"/>.</t>
 
    <t>This document specifies the negotiation and transport of MSRP over a WebRTC data channel <xref target="I-D.ietf-rtcweb-data-channel"/>. Negotiation is carried out as specified in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/> and MSRP is transported as a sub-protocol of a WebRTC data channel.</t>
 
@@ -140,6 +136,11 @@
    <t>Compared to WebSockets, which provide a message passing protocol to applications with no direct access to TCP or TLS sockets, data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in other applications that use WebRTC for media or other purposes, such as IoT or telemetry in general, non-media data exchange, and so on.</t>
 
    <t>Considering an MSRP endpoint as an MSRP application that uses a WebRTC data channel, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
+
+    <section title="Updates to RFC4975">
+      <t>This document updates <xref target="RFC4975"/>, by allowing the usage of the "msrps" scheme when the underlying connection is protected with DTLS.</t>
+    </section>
+
   </section>
 
   <section title="Conventions">
@@ -240,7 +241,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
       <t>A subsequent offer or answer MAY update the previously negotiated MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description. The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.</t>
 
-      <t>The path attribute SHALL NOT be used for transport negotiation.</t>
+      <t>Data channels are negotiated independently of the value of the "path" attribute. This means that when MSRP messages are transported on a data channel, the "path" attribute is not used for transport negotiation or routing of the messages. MSRP endpoints using data channels can set the value of the "path" attribute, including the MSRP URI, and use it as described in <xref target="RFC4975"/>.</t>
      
      </section>
 
@@ -261,7 +262,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      </section>
 
     <section title="Session Closing" anchor="session-closing-sdp">
-     <t>The closure of an MSRP session MUST be signaled via an SDP offer/answer exchange which removes the "a=dcmap:" and "a=dcsa:" attribute lines associated with the MSRP session from the associated DTLS/SCTP based media description. This results in the associated data channel being closed as well as per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>, where the actual data channel closure procedure is typically initiated by the SDP answerer right after having accepted the SDP offer.</t>
+     <t>An MSRP session is closed by closing the associated data channel, following the procedures in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
      <t>The port value for the "m=" line SHOULD NOT be changed (e.g. to zero) when closing an MSRP session (unless all data channels are being closed and the SCTP association is no longer needed), since this would close the SCTP association and impact all of the data channels. In all cases in <xref target="RFC4975"/> where the procedure calls for setting the port to zero for the MSRP "m=" line in an SDP offer for TCP transport, the SDP offerer of an MSRP session with data channel transport SHALL remove the corresponding dcmap and dcsa attributes.</t>
      <t>The SDP answerer must ensure that no dcmap or dcsa attributes are present in the SDP answer if no corresponding attributes are present in the received SDP offer.</t>
     </section>
@@ -288,14 +289,14 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    a=dcsa:0 msrp-cema
    a=dcsa:0 setup:active
    a=dcsa:0 accept-types:message/cpim text/plain
-   a=dcsa:0 path:msrps://bob.example.com:54111/si438dsaodes;dc
+   a=dcsa:0 path:msrps://bob.example.com/si438dsaodes;dc
    a=dcmap:2 label="file transfer";subprotocol="msrp"
    a=dcsa:2 sendonly
    a=dcsa:2 msrp-cema
    a=dcsa:2 setup:active
    a=dcsa:2 accept-types:message/cpim
    a=dcsa:2 accept-wrapped-types:*
-   a=dcsa:2 path:msrps://bob.example.com:54111/jshA7we;dc
+   a=dcsa:2 path:msrps://bob.example.com/jshA7we;dc
    a=dcsa:2 file-selector:name:"picture1.jpg" \
         type:image/jpeg size:1463440 hash:sha-1:\
         FF:27:0D:81:14:F1:8A:C3:35:3B:36:64:2A:62:C9:3E:D3:6B:51:B4
@@ -313,7 +314,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
   <section title="MSRP Considerations" anchor="msrp-cons">
 
-   <t>This section describes the MSRP considerations specific to a MSRP data channel.</t>
+   <t>The procedures specified in <xref target="RFC4975"/> apply except when this document specifies otherwise. This section describes the MSRP considerations specific to a MSRP data channel.</t>
     <section title="Session Mapping">
       <t>In this document, each MSRP session maps to one data channel exactly.</t>
     </section>
@@ -323,12 +324,13 @@ a=dcmap:2 label="chat";subprotocol="msrp"
     </section>
     <section title="Session Closing" anchor="session-closing">
      <t>The closure of an MSRP session MUST be signaled via SDP following the requirements in <xref target="session-closing-sdp"/></t>
+     <t>If the data channel used to transport the MSRP session fails and gets torn down, the endpoints MUST consider the MSRP session failed. An MSRP endpoint MAY, based on local policy, try to negotiate a new MSRP data channel.</t>
     </section>
     <section title="Data Framing" anchor="data-framing">
      <t>Each text-based MSRP message is sent on the corresponding SCTP stream using standard MSRP framing and chunking procedures, as defined in <xref target="RFC4975"/>, with each MSRP chunk delivered in a single SCTP user message. Therefore all sent MSRP chunks including the MSRP chunk header MUST have lengths of less than or equal to the value of the peer's "a=max-message-size" attribute, which is associated with the data channel's SCTP association.</t>
     </section>
-    <section title="Data Sending and Reporting">
-      <t>Data sending and reporting procedures SHALL conform to <xref target="RFC4975"/>.</t>
+    <section title="Data Sending, Receiving and Reporting">
+      <t>Data sending, receiving and reporting procedures SHALL conform to <xref target="RFC4975"/>.</t>
     </section>
     <section title="Support for MSRP File Transfer Function" anchor="file_transfer_msrp">
      <t><xref target="RFC5547"/> defines an end-to-end file transfer method based on MSRP and the SDP offer/answer mechanism. This file transfer method is also usable by MSRP endpoints using data channels, with the following considerations:
@@ -367,10 +369,12 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
   <section anchor="IANA" title="IANA Considerations">
 
-   <section title="Subprotocol Identifier MSRP" anchor="IANA-reg-MSRP">
+   <section title="msrps URI scheme" anchor="IANA-reg-msrps">
+     <t>This document modifies the usage of the msrps URI scheme, registered by <xref target="RFC4975"/>, adding DTLS as a protected transport indicated by the URI scheme.
+     </t>
+   </section>
 
-      <t>NOTE to RFC Editor: Please replace "XXXX" with the number of this RFC.
-    </t>
+   <section title="Subprotocol Identifier MSRP" anchor="IANA-reg-MSRP">
 
     <t>This document adds a reference to the subprotocol identifier "msrp" in the "WebSocket Subprotocol Name Registry"
     </t>
@@ -728,9 +732,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    &DATAREQ;
    &DCSDPNEG;
    &SDPSCTP;
-   &RFC4145;
    &RFC4566;
-   &RFC4566bis;
    &RFC4975;
    &RFC5547;
    &RFC6135;
