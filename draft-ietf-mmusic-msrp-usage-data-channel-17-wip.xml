@@ -261,7 +261,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      </section>
 
     <section title="Session Closing" anchor="session-closing-sdp">
-     <t>The closure of an MSRP session MUST be signaled via an SDP offer/answer exchange which removes the "a=dcmap:" and "a=dcsa:" attribute lines associated with the MSRP session from the associated DTLS/SCTP based media description. This results in the associated data channel being closed as well as per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>, where the actual data channel closure procedure is typically initiated by the SDP answerer right after having accepted the SDP offer.</t>
+     <t>Normal closure of an MSRP session MUST be signaled via an SDP offer/answer exchange which removes the "a=dcmap:" and "a=dcsa:" attribute lines associated with the MSRP session from the associated DTLS/SCTP based media description. This results in the associated data channel being closed as well as per <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>, where the actual data channel closure procedure is typically initiated by the SDP answerer right after having accepted the SDP offer.</t>
      <t>The port value for the "m=" line SHOULD NOT be changed (e.g. to zero) when closing an MSRP session (unless all data channels are being closed and the SCTP association is no longer needed), since this would close the SCTP association and impact all of the data channels. In all cases in <xref target="RFC4975"/> where the procedure calls for setting the port to zero for the MSRP "m=" line in an SDP offer for TCP transport, the SDP offerer of an MSRP session with data channel transport SHALL remove the corresponding dcmap and dcsa attributes.</t>
      <t>The SDP answerer must ensure that no dcmap or dcsa attributes are present in the SDP answer if no corresponding attributes are present in the received SDP offer.</t>
     </section>
@@ -323,12 +323,13 @@ a=dcmap:2 label="chat";subprotocol="msrp"
     </section>
     <section title="Session Closing" anchor="session-closing">
      <t>The closure of an MSRP session MUST be signaled via SDP following the requirements in <xref target="session-closing-sdp"/></t>
+     <t>Connection failure may result in session closing without SDP exchange. If the endpoint attempts to re-create the session, procedures specified in <xref target="RFC4975"/> SHALL be followed.</t>
     </section>
     <section title="Data Framing" anchor="data-framing">
      <t>Each text-based MSRP message is sent on the corresponding SCTP stream using standard MSRP framing and chunking procedures, as defined in <xref target="RFC4975"/>, with each MSRP chunk delivered in a single SCTP user message. Therefore all sent MSRP chunks including the MSRP chunk header MUST have lengths of less than or equal to the value of the peer's "a=max-message-size" attribute, which is associated with the data channel's SCTP association.</t>
     </section>
-    <section title="Data Sending and Reporting">
-      <t>Data sending and reporting procedures SHALL conform to <xref target="RFC4975"/>.</t>
+    <section title="Data Sending, Receiving and Reporting">
+      <t>Data sending, receiving and reporting procedures SHALL conform to <xref target="RFC4975"/>.</t>
     </section>
     <section title="Support for MSRP File Transfer Function" anchor="file_transfer_msrp">
      <t><xref target="RFC5547"/> defines an end-to-end file transfer method based on MSRP and the SDP offer/answer mechanism. This file transfer method is also usable by MSRP endpoints using data channels, with the following considerations:
