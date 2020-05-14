@@ -187,7 +187,7 @@
 
      <section title="Use of the dcmap Attribute" anchor="use-of-dcmap-attribute">
 
-      <t>An offerer and answerer MUST, in each offer and answer, include a dcmap attribute line (<xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) within the media description of the SCTP association for each MSRP data channel session to be negotiated.</t>
+      <t>An offerer and answerer SHALL, in each offer and answer, include a dcmap attribute line (<xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) within the media description of the SCTP association for each MSRP data channel session to be negotiated.</t>
 
       <t>The attribute includes the following data channel parameters:
        <list style="symbols">
@@ -198,9 +198,9 @@
 
       <t>The labelstring is set by the MSRP application according to <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
 
-      <t>The offerer and answerer MUST NOT include the max-retr and the max-time attribute parameters in the dcmap attribute.</t>
+      <t>The offerer and answerer SHALL NOT include the max-retr and the max-time attribute parameters in the dcmap attribute.</t>
       
-      <t>The offerer and answerer MAY include the ordered attribute parameter in the dcmap attribute. If included, the attribute parameter value MUST be set to "true".</t>
+      <t>The offerer and answerer MAY include the ordered attribute parameter in the dcmap attribute. If included, the attribute parameter value SHALL be set to "true".</t>
 
       <t>Below is an example of the dcmap attribute for an MSRP session to be negotiated with stream-id=2 and label="chat":</t>
 
@@ -215,12 +215,12 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      <section title="Use of the dcsa Attribute" anchor="use-of-dcsa-attribute">
 
       <t>
-        An offerer and answerer MUST, in each offer and answer, include a dcsa attribute line (<xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) 
+        An offerer and answerer SHALL, in each offer and answer, include a dcsa attribute line (<xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>) 
         within the media description for the SCTP association for each MSRP-specific SDP attribute to be negotiated for each MSRP data channel being negotiated.
       </t>
 
       <t>
-        An offerer and answerer MUST include a dcsa attribute for each of the following MSRP-specific SDP attributes:
+        An offerer and answerer SHALL include a dcsa attribute for each of the following MSRP-specific SDP attributes:
        <list style="symbols">
         <t>defined in <xref target="RFC4975"/>: "path".</t>
         <t>defined in <xref target="RFC6714"/>: "msrp-cema".</t>
@@ -241,7 +241,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
       <t>A subsequent offer or answer MAY update the previously negotiated MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description. The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.</t>
 
-      <t>Data channels are negotiated independently of the value of the "path" attribute. This means that when MSRP messages are transported on a data channel, the "path" attribute is not used for transport negotiation or routing of the messages. MSRP endpoints using data channels can set the value of the "path" attribute, including the MSRP URI, and use it as described in <xref target="RFC4975"/>.</t>
+      <t>When MSRP messages are transported on a data channel, the "path" attribute is not used for routing of the messages. The MSRP data channel is established using the SDP offer/answer procedures defined in [I-D.ietf-rtcweb-data-channel], and the MSRP messages are then transported on that data channel. Because of that an MSRP endpoint can set the MSRP-URI authority value of the "path" attribute at its own discretion, following the syntax and rules in [RFC4975].</t>
      
      </section>
 
@@ -289,14 +289,14 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    a=dcsa:0 msrp-cema
    a=dcsa:0 setup:active
    a=dcsa:0 accept-types:message/cpim text/plain
-   a=dcsa:0 path:msrps://bob.example.com/si438dsaodes;dc
+   a=dcsa:0 path:msrps://bob.example.com:54111/si438dsaodes;dc
    a=dcmap:2 label="file transfer";subprotocol="msrp"
    a=dcsa:2 sendonly
    a=dcsa:2 msrp-cema
    a=dcsa:2 setup:active
    a=dcsa:2 accept-types:message/cpim
    a=dcsa:2 accept-wrapped-types:*
-   a=dcsa:2 path:msrps://bob.example.com/jshA7we;dc
+   a=dcsa:2 path:msrps://bob.example.com:54111/jshA7we;dc
    a=dcsa:2 file-selector:name:"picture1.jpg" \
         type:image/jpeg size:1463440 hash:sha-1:\
         FF:27:0D:81:14:F1:8A:C3:35:3B:36:64:2A:62:C9:3E:D3:6B:51:B4
@@ -323,11 +323,11 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      <t>As soon as the WebRTC data channel is opened, the MSRP session is actually opened by the active MSRP session endpoint. In order to do this the active MSRP endpoint sends an MSRP SEND message (empty or not) to the other MSRP endpoint.</t>
     </section>
     <section title="Session Closing" anchor="session-closing">
-     <t>The closure of an MSRP session MUST be signaled via SDP following the requirements in <xref target="session-closing-sdp"/></t>
-     <t>If the data channel used to transport the MSRP session fails and gets torn down, the endpoints MUST consider the MSRP session failed. An MSRP endpoint MAY, based on local policy, try to negotiate a new MSRP data channel.</t>
+     <t>The closure of an MSRP session SHALL be signaled via SDP following the requirements in <xref target="session-closing-sdp"/></t>
+     <t>If the data channel used to transport the MSRP session fails and gets torn down, the endpoints SHALL consider the MSRP session failed. An MSRP endpoint MAY, based on local policy, try to negotiate a new MSRP data channel.</t>
     </section>
     <section title="Data Framing" anchor="data-framing">
-     <t>Each text-based MSRP message is sent on the corresponding SCTP stream using standard MSRP framing and chunking procedures, as defined in <xref target="RFC4975"/>, with each MSRP chunk delivered in a single SCTP user message. Therefore all sent MSRP chunks including the MSRP chunk header MUST have lengths of less than or equal to the value of the peer's "a=max-message-size" attribute, which is associated with the data channel's SCTP association.</t>
+     <t>Each text-based MSRP message is sent on the corresponding SCTP stream using standard MSRP framing and chunking procedures, as defined in <xref target="RFC4975"/>, with each MSRP chunk delivered in a single SCTP user message. Therefore all sent MSRP chunks including the MSRP chunk header SHALL have lengths of less than or equal to the value of the peer's "a=max-message-size" attribute, which is associated with the data channel's SCTP association.</t>
     </section>
     <section title="Data Sending, Receiving and Reporting">
       <t>Data sending, receiving and reporting procedures SHALL conform to <xref target="RFC4975"/>.</t>
@@ -356,10 +356,10 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    <t>When the gateway performs transport level interworking between MSRP endpoints, all of the procedures in <xref target="msrp-cons"/> and <xref target="sdp-cons"/> apply to each peer, with the following additions:
 
     <list style="symbols">
-     <t>The gateway MUST use CEMA towards the non-data channel endpoint.</t>
+     <t>The gateway SHALL use CEMA towards the non-data channel endpoint.</t>
      <t>If the non-data channel endpoint does not support CEMA, transport level interworking mode is not possible, the gateway needs to act as an MSRP B2BUA.</t>
-     <t>The gateway MUST NOT modify the path attribute received from data channel or from non-data channel endpoints.</t>
-     <t>The gateway MUST NOT modify the setup value received from data channel or from non-data channel endpoints.</t>
+     <t>The gateway SHALL NOT modify the path attribute received from data channel or from non-data channel endpoints.</t>
+     <t>The gateway SHALL NOT modify the setup value received from data channel or from non-data channel endpoints.</t>
      <t>The endpoint establishing an MSRP session using data channel transport SHALL NOT request inclusion of any relays, although it MAY interoperate with a peer that signals the use of relays.</t>
     </list>
 
