@@ -137,10 +137,6 @@
 
    <t>Considering an MSRP endpoint as an MSRP application that uses a WebRTC data channel, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
 
-    <section title="Updates to RFC4975">
-      <t>This document updates <xref target="RFC4975"/>, by allowing the usage of the "msrps" scheme when the underlying connection is protected with DTLS.</t>
-    </section>
-
   </section>
 
   <section title="Conventions">
@@ -367,6 +363,18 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
   </section>
 
+  <section title="Updates to RFC4975">
+    <t>This document updates <xref target="RFC4975"/>, by allowing the usage of the "msrps" scheme when the underlying connection is protected with DTLS.</t>
+  </section>
+
+  <section anchor="Security" title="Security Considerations">
+
+   <t>MSRP traffic over data channels is secured, including confidentiality, integrity and source authentication, as specified by <xref target="I-D.ietf-rtcweb-data-channel"/></t>
+
+   <t>Note that discussion in <xref target="RFC4975"/> on MSRP message attribution to remote identities applies to data channel transport.</t>
+
+  </section>
+
   <section anchor="IANA" title="IANA Considerations">
 
    <section title="msrps URI scheme" anchor="IANA-reg-msrps">
@@ -448,14 +456,6 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      </texttable>
 
    </section>
-  </section>
-
-  <section anchor="Security" title="Security Considerations">
-
-   <t>MSRP traffic over data channels is secured, including confidentiality, integrity and source authentication, as specified by <xref target="I-D.ietf-rtcweb-data-channel"/></t>
-
-   <t>Note that discussion in <xref target="RFC4975"/> on MSRP message attribution to remote identities applies to data channel transport.</t>
-
   </section>
 
   <section title="Acknowledgments">
@@ -574,12 +574,12 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    <t>
     <list style="symbols">
 
-     <t>Addition of <xref target="I-D.ietf-mmusic-rfc4566bis"/>
+     <t>Addition of "I-D.ietf-mmusic-rfc4566bis"/>
      to list of normative references.
      </t>
 
      <t>Addition of <xref target="IANA-reg-setup"/> as per section 8.2.4 
-     of <xref target="I-D.ietf-mmusic-rfc4566bis"/>.
+     of "I-D.ietf-mmusic-rfc4566bis"/>.
      </t>
 
     </list>
@@ -604,7 +604,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      <t>Addition of "a=setup:actpass", "a=connection:new", "a=fingerprint:..." and "a=dcsa:x setup=active" SDP attributes to the SDP example in <xref target="example-sdp-negotiation"/>.
      </t>
 
-     <t>Addition of <xref target="RFC4145"/> and <xref target="I-D.ietf-mmusic-sctp-sdp"/> to list of normative references.
+     <t>Addition of "RFC4145" and <xref target="I-D.ietf-mmusic-sctp-sdp"/> to list of normative references.
      </t>
 
      <t>Addition of new <xref target="use-of-setup-attribute"/> describing how the active MSRP session endpoint role is negotiated.
