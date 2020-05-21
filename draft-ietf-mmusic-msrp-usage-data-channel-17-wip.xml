@@ -122,7 +122,7 @@
 
    <t>The Message Session Relay Protocol (MSRP) <xref target="RFC4975"/> is a protocol for transmitting a series of related instant messages in the context of a session. In addition to instant messaging, MSRP can also be used for image sharing or file transfer. MSRP was initially defined in <xref target="RFC4975"/> to work over TCP and TLS connections, and over a WebSocket subprotocol specified by <xref target="RFC7977"/>.</t>
 
-   <t>This document specifies the negotiation and transport of MSRP over a WebRTC data channel <xref target="I-D.ietf-rtcweb-data-channel"/>. Negotiation is carried out as specified in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/> and MSRP is transported as a sub-protocol of a WebRTC data channel.</t>
+   <t>This document specifies the negotiation and transport of MSRP over a WebRTC data channel <xref target="I-D.ietf-rtcweb-data-channel"/>. Negotiation is carried out as specified in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/> and MSRP is transported as a sub-protocol of a WebRTC data channel, without the TCP and TLS layers.</t>
 
    <t>Defining MSRP as a data channel sub-protocol has many benefits:
     <list style="symbols">
@@ -237,7 +237,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
       <t>A subsequent offer or answer MAY update the previously negotiated MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description. The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.</t>
 
-      <t>When MSRP messages are transported on a data channel, the "path" attribute is not used for routing of the messages. The MSRP data channel is established using the SDP offer/answer procedures defined in [I-D.ietf-rtcweb-data-channel], and the MSRP messages are then transported on that data channel. Because of that an MSRP endpoint can set the MSRP-URI authority value of the "path" attribute at its own discretion, following the syntax and rules in [RFC4975].</t>
+      <t>When MSRP messages are transported on a data channel, the "path" attribute is not used for routing of the messages. The MSRP data channel is established using the SDP offer/answer procedures defined in [I-D.ietf-rtcweb-data-channel], and the MSRP messages are then transported on that data channel. This is different from legacy MSRP <xref target="RFC4975"/> but similar to MSRP CEMA <xref target="RFC6714"/>. However, when an endpoint receives an MSRP message over a data channel, it still MUST still perform the MSRP-URI comparison procedures defined in <xref target="RFC4975"/>.</t>
      
      </section>
 
@@ -285,14 +285,14 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    a=dcsa:0 msrp-cema
    a=dcsa:0 setup:active
    a=dcsa:0 accept-types:message/cpim text/plain
-   a=dcsa:0 path:msrps://bob.example.com:54111/si438dsaodes;dc
+   a=dcsa:0 path:msrps://198.51.100.79:54111/si438dsaodes;dc
    a=dcmap:2 label="file transfer";subprotocol="msrp"
    a=dcsa:2 sendonly
    a=dcsa:2 msrp-cema
    a=dcsa:2 setup:active
    a=dcsa:2 accept-types:message/cpim
    a=dcsa:2 accept-wrapped-types:*
-   a=dcsa:2 path:msrps://bob.example.com:54111/jshA7we;dc
+   a=dcsa:2 path:msrps://198.51.100.79:54111/jshA7we;dc
    a=dcsa:2 file-selector:name:"picture1.jpg" \
         type:image/jpeg size:1463440 hash:sha-1:\
         FF:27:0D:81:14:F1:8A:C3:35:3B:36:64:2A:62:C9:3E:D3:6B:51:B4
