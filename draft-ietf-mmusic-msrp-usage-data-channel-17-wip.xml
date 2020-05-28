@@ -147,7 +147,7 @@
 
    <section title="MSRP Data Channel" anchor="msrp-data-channel">
     <t>In this document, an MSRP data channel is a data channel for which the instantiated sub-protocol is "MSRP", and where the channel is negotiated using the SDP-based external negotiation method defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
-    <t>The following WebRTC data channel property values [I-D.ietf-rtcweb-data-channel] apply to a MSRP data channel:</t>
+    <t>The following WebRTC data channel property values <xref target="I-D.ietf-rtcweb-data-channel"/> apply to a MSRP data channel:</t>
     <texttable title="">
       <ttcol align="left">Property</ttcol>
       <ttcol align="left">Value</ttcol>
@@ -237,7 +237,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
       <t>A subsequent offer or answer MAY update the previously negotiated MSRP subprotocol attributes while keeping the same subprotocol a=dcmap description. The semantics for newly negotiated MSRP subprotocol attributes are per <xref target="RFC4975"/>.</t>
 
-      <t>When MSRP messages are transported on a data channel, the "path" attribute is not used for routing of the messages. The MSRP data channel is established using the SDP offer/answer procedures defined in [I-D.ietf-rtcweb-data-channel], and the MSRP messages are then transported on that data channel. This is different from legacy MSRP <xref target="RFC4975"/> but similar to MSRP CEMA <xref target="RFC6714"/>. However, when an endpoint receives an MSRP message over a data channel, it still MUST still perform the MSRP-URI comparison procedures defined in <xref target="RFC4975"/>.</t>
+      <t>When MSRP messages are transported on a data channel, the "path" attribute is not used for routing of the messages. The MSRP data channel is established using the SDP offer/answer procedures defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>, and the MSRP messages are then transported on that data channel. This is different from legacy MSRP <xref target="RFC4975"/> but similar to MSRP CEMA <xref target="RFC6714"/>. However, when an endpoint receives an MSRP message over a data channel, it MUST still perform the MSRP-URI comparison procedures defined in <xref target="RFC4975"/>.</t>
      
      </section>
 
@@ -462,7 +462,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
    <t>The authors wish to acknowledge the borrowing of ideas from another internet draft by Peter Dunkley and Gavin Llewellyn, and to thank Flemming Andreasen, Christian Groves, Paul Kyzivat, Jonathan Lennox, Uwe Rauschenbach, Albrecht Schwarz, and Keith Drage for their invaluable comments.</t>
    <t>Richard Ejzak, Keith Drage and Juergen Stoetzer-Bradler contributed an earlier version, before the draft was re-adopted.</t>
-   <t>Maridi R. Makaraju (Raju) contributed valuable comments after the draft was re-adopted.</t>
+   <t>Julien Maisonneuve helped with the re-adoption of the draft back, and  Maridi R. Makaraju (Raju) contributed valuable comments after the draft was re-adopted.</t>
 
   </section>
 
