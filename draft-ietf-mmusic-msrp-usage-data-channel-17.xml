@@ -41,7 +41,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-16" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-17" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
   ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
   or pre5378Trust200902
@@ -467,6 +467,15 @@ a=dcmap:2 label="chat";subprotocol="msrp"
   </section>
 
  <section title="CHANGE LOG">
+
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-16'">
+   <t>
+    <list style="symbols">
+     <t>WGLC review: draft updates RFC4975; clarify introduction; rewrite wording on path and transport negotiation; session closing clarifications; references cleanup.</t>
+     <t>Editorial: consistent SHALL usage; reorder updates, security and IANA sections for consistency; typos; acknowledgements.</t>
+    </list>
+   </t>
+  </section>
 
   <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-15'">
    <t>
