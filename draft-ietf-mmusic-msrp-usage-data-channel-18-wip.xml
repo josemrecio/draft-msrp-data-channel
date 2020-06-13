@@ -148,7 +148,7 @@
   <section title="WebRTC Data Channel Considerations">
 
    <section title="MSRP Data Channel" anchor="msrp-data-channel">
-    <t>In this document, an MSRP data channel is a data channel for which the instantiated sub-protocol is "MSRP", and where the channel is negotiated using the SDP-based external negotiation method defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
+    <t>In this document, an MSRP data channel is a data channel for which the instantiated sub-protocol is "msrp", and where the channel is negotiated using the SDP-based external negotiation method defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
     <t>The following WebRTC data channel property values <xref target="I-D.ietf-rtcweb-data-channel"/> apply to an MSRP data channel:</t>
     <texttable title="">
       <ttcol align="left">Property</ttcol>
