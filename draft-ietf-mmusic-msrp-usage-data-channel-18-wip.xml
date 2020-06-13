@@ -455,6 +455,27 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      </texttable>
 
    </section>
+
+   <section title="Additional references to the  SDP Parameters registry" anchor="IANA-reg-other-sdp">
+    <t>This document adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry:</t>
+    <t>
+    <list style="symbols">
+      <t>"accept-types"</t>
+      <t>"accept-wrapped-types"</t>
+      <t>"max-size"</t>
+      <t>"sendonly"</t>
+      <t>"recvonly"</t>
+      <t>"inactive"</t>
+      <t>"sendrecv"</t>
+      <t>"file-selector"</t>
+      <t>"file-transfer-id"</t>
+      <t>"file-disposition"</t>
+      <t>"file-date"</t>
+      <t>"file-icon"</t>
+      <t>"file-range"</t>
+    </list>
+    </t>
+   </section>
   </section>
 
   <section title="Acknowledgments">
