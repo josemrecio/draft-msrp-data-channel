@@ -149,7 +149,7 @@
 
    <section title="MSRP Data Channel" anchor="msrp-data-channel">
     <t>In this document, an MSRP data channel is a data channel for which the instantiated sub-protocol is "MSRP", and where the channel is negotiated using the SDP-based external negotiation method defined in <xref target="I-D.ietf-mmusic-data-channel-sdpneg"/>.</t>
-    <t>The following WebRTC data channel property values <xref target="I-D.ietf-rtcweb-data-channel"/> apply to a MSRP data channel:</t>
+    <t>The following WebRTC data channel property values <xref target="I-D.ietf-rtcweb-data-channel"/> apply to an MSRP data channel:</t>
     <texttable title="">
       <ttcol align="left">Property</ttcol>
       <ttcol align="left">Value</ttcol>
@@ -169,7 +169,7 @@
   </section>
 
   <section title="SDP Considerations" anchor="sdp-cons">
-     <t>This section describes the SDP considerations which are specific to a MSRP data channel</t>
+     <t>This section describes the SDP considerations which are specific to an MSRP data channel</t>
      <section title="MSRP URI">
       <t>This document extends the MSRP URI syntax <xref target="RFC4975"/> by defining the new transport parameter value "dc":</t>
        <figure align="left" title="">
@@ -312,7 +312,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
   <section title="MSRP Considerations" anchor="msrp-cons">
 
-   <t>The procedures specified in <xref target="RFC4975"/> apply except when this document specifies otherwise. This section describes the MSRP considerations specific to a MSRP data channel.</t>
+   <t>The procedures specified in <xref target="RFC4975"/> apply except when this document specifies otherwise. This section describes the MSRP considerations specific to an MSRP data channel.</t>
     <section title="Session Mapping">
       <t>In this document, each MSRP session maps to one data channel exactly.</t>
     </section>
@@ -343,11 +343,11 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
   <section title="Gateway Considerations" anchor="gateway-cons">
 
-   <t>This section describes the network configuration where one MSRP endpoint uses a MSRP data channel as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via a gateway.</t>
+   <t>This section describes the network configuration where one MSRP endpoint uses an MSRP data channel as MSRP transport, the other MSRP endpoint uses TLS/TCP connections as MSRP transport, and the two MSRP endpoints interwork via a gateway.</t>
 
    <t>Specifically, a gateway can be configured to interwork an MSRP session over a data channel with a peer that does not support data channel transport in one of two ways.</t>
 
-   <t>In one model, the gateway performs as a MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
+   <t>In one model, the gateway performs as an MSRP B2BUA to interwork all the procedures as necessary between the endpoints.  No further specification is needed for this model.</t>
 
    <t>Alternately, the gateway can provide transport level interworking between MSRP endpoints using different transport protocols. In accordance with <xref target="use-of-dcsa-attribute"/>, path attributes SHALL NOT be used for transport level interworking.</t>
 
