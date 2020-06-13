@@ -41,7 +41,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-17" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-17" ipr="trust200902" updates="RFC4975">
   <!-- category values: std, bcp, info, exp, and historic
   ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
   or pre5378Trust200902
@@ -112,7 +112,7 @@
 
   <abstract>
 
-   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as a WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint. This document updates <xref target="RFC4975"/></t>
+   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as a WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint. This document updates RFC4975</t>
 
   </abstract>
  </front>
@@ -136,6 +136,8 @@
    <t>Compared to WebSockets, which provide a message passing protocol to applications with no direct access to TCP or TLS sockets, data channels provide a low latency transport, leverage NAT-aware connectivity and security features of WebRTC, and are increasingly available not only in modern browsers but in other applications that use WebRTC for media or other purposes, such as IoT or telemetry in general, non-media data exchange, and so on.</t>
 
    <t>Considering an MSRP endpoint as an MSRP application that uses a WebRTC data channel, this document describes two configurations where the other endpoint is respectively either another MSRP over data channel endpoint (e.g., a WebRTC application) or an MSRP endpoint using either TCP or TLS transport.</t>
+
+   <t>This document updates <xref target="RFC4975"/> as described in <xref target="updates-to-rfc4975"/>.</t>
 
   </section>
 
@@ -363,7 +365,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
   </section>
 
-  <section title="Updates to RFC4975">
+  <section title="Updates to RFC4975" anchor="updates-to-rfc4975">
     <t>This document updates <xref target="RFC4975"/>, by allowing the usage of the "msrps" scheme when the underlying connection is protected with DTLS.</t>
   </section>
 
