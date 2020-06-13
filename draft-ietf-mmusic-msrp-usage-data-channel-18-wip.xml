@@ -380,27 +380,24 @@ a=dcmap:2 label="chat";subprotocol="msrp"
   <section anchor="IANA" title="IANA Considerations">
 
    <section title="msrps URI scheme" anchor="IANA-reg-msrps">
-     <t>This document modifies the usage of the msrps URI scheme, registered by <xref target="RFC4975"/>, adding DTLS as a protected transport indicated by the URI scheme.
-     </t>
+     <t>NOTE to RFC Editor: Please replace "XXXX" with the number of this RFC.</t>
+     <t>This document modifies the usage of the msrps URI scheme, registered by <xref target="RFC4975"/>, adding DTLS as a protected transport indicated by the URI scheme.</t>
+     <t>A reference to RFCXXXX is added to the URI scheme "msrps" in the Uniform Resource Identifier (URI) Schemes Registry.</t>
    </section>
 
    <section title="Subprotocol Identifier MSRP" anchor="IANA-reg-MSRP">
 
-    <t>This document adds a reference to the subprotocol identifier "msrp" in the "WebSocket Subprotocol Name Registry"
-    </t>
+    <t>This document adds a reference to the subprotocol identifier "msrp" in the "WebSocket Subprotocol Name Registry"</t>
 
    </section>
 
    <section title="setup Attribute" anchor="IANA-reg-setup">
 
-       <t>NOTE to RFC Editor: Please replace "XXXX" with the number of this RFC.
-     </t>
+     <t>NOTE to RFC Editor: Please replace "XXXX" with the number of this RFC.</t>
 
-     <t>This document modifies the usage of the SDP setup attribute, if this attribute is embedded in a dcsa attribute and associated with an MSRP session over a data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.
-     </t>
+     <t>This document modifies the usage of the SDP setup attribute, if this attribute is embedded in a dcsa attribute and associated with an MSRP session over a data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
 
-     <t>Usage level "dcsa(MSRP)" should be added to the IANA registration of the SDP setup attribute as follows:
-     </t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'setup' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -426,7 +423,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        -->
 
        <c>Usage level:</c>
-       <c>dcsa(MSRP)</c>
+       <c>dcsa(msrp)</c>
 
        <!--
        <c>Charset dependent:</c>
