@@ -393,7 +393,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
    <section title="setup Attribute" anchor="IANA-reg-setup">
 
-     <t>This document modifies the usage of the SDP setup attribute, if this attribute is embedded in a dcsa attribute and associated with an MSRP session over a data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
+     <t>This document modifies the usage of the SDP setup attribute, if this attribute is included in SDP 'dcsa' attributes associated to an MSRP data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
 
      <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'setup' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
 
@@ -455,7 +455,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    </section>
 
    <section title="Additional references to the  SDP Parameters registry" anchor="IANA-reg-other-sdp">
-    <t>This document adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry, if these attributes are included in SDP 'dcsa' attributes associated to a MSRP data channel:</t>
+    <t>This document adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry, if these attributes are included in SDP 'dcsa' attributes associated to an MSRP data channel:</t>
     <t>
     <list style="symbols">
       <t>"path"</t>
@@ -476,6 +476,376 @@ a=dcmap:2 label="chat";subprotocol="msrp"
     </list>
     </t>
     <t>Usage of these attributes is described in section <xref target="use-of-dcsa-attribute"/>.</t>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'path' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>path</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Indicate a series of MSRP devices visited by messages sent in the MSRP session.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'msrp-cema' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>msrp-cema</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Indicate support for the CEMA mechanism.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'accept-types' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>accept-types</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Contain the list of media types that the endpoint is willing to receive.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'accept-wrapped-types' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>accept-wrapped-types</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Contain the list of media types that the endpoint is willing to receive in an MSRP message with multipart content.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'max-size' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>max-size</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Indicate the largest message an MSRP endpoint wishes to accept.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'sendonly' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>sendonly</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Negotiate the direction of the media flow on an MSRP data channel.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'recvonly' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>recvonly</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Negotiate the direction of the media flow on an MSRP data channel.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'inactive' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>inactive</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Negotiate the direction of the media flow on an MSRP data channel.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'sendrecv' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>sendrecv</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Negotiate the direction of the media flow on an MSRP data channel.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-selector' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>file-selector</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Indicate a file in an MSRP file transfer negotiation.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-transfer-id' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>file-transfer-id</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Indicate a unique identifier of the file transfer operation in an MSRP file transfer negotiation.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-disposition' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>file-disposition</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Provide a suggestion to the other endpoint about the intended disposition of the file in an MSRP file transfer negotiation.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-date' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>file-date</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Indicate a date related to the file in an MSRP file transfer negotiation.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-icon' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>file-icon</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Contain a pointer to a small preview icon representing the contents of the file in an MSRP file transfer negotiation.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-range' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>file-range</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c>Contain the range of transferred octets of the file in an MSRP file transfer negotiation.</c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
+
    </section>
   </section>
 
