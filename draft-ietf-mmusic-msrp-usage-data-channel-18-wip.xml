@@ -378,9 +378,9 @@ a=dcmap:2 label="chat";subprotocol="msrp"
   </section>
 
   <section anchor="IANA" title="IANA Considerations">
+   <t>NOTE to RFC Editor: Please replace all instances of all instances of RFCXXXX with the number of this RFC.</t>
 
    <section title="msrps URI scheme" anchor="IANA-reg-msrps">
-     <t>NOTE to RFC Editor: Please replace "XXXX" with the number of this RFC.</t>
      <t>This document modifies the usage of the msrps URI scheme, registered by <xref target="RFC4975"/>, adding DTLS as a protected transport indicated by the URI scheme.</t>
      <t>A reference to RFCXXXX is added to the URI scheme "msrps" in the Uniform Resource Identifier (URI) Schemes Registry.</t>
    </section>
@@ -392,8 +392,6 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    </section>
 
    <section title="setup Attribute" anchor="IANA-reg-setup">
-
-     <t>NOTE to RFC Editor: Please replace "XXXX" with the number of this RFC.</t>
 
      <t>This document modifies the usage of the SDP setup attribute, if this attribute is embedded in a dcsa attribute and associated with an MSRP session over a data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
 
@@ -457,9 +455,11 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    </section>
 
    <section title="Additional references to the  SDP Parameters registry" anchor="IANA-reg-other-sdp">
-    <t>This document adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry:</t>
+    <t>This document adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry, if these attributes are included in SDP 'dcsa' attributes associated to a MSRP data channel:</t>
     <t>
     <list style="symbols">
+      <t>"path"</t>
+      <t>"msrp-cema"</t>
       <t>"accept-types"</t>
       <t>"accept-wrapped-types"</t>
       <t>"max-size"</t>
@@ -475,6 +475,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
       <t>"file-range"</t>
     </list>
     </t>
+    <t>Usage of these attributes is described in section <xref target="use-of-dcsa-attribute"/>.</t>
    </section>
   </section>
 
