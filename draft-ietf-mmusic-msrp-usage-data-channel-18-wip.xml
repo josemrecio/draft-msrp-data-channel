@@ -393,7 +393,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
    <section title="setup Attribute" anchor="IANA-reg-setup">
 
-     <t>This document modifies the usage of the SDP setup attribute, if this attribute is included in SDP 'dcsa' attributes associated to an MSRP data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
+     <t>This document modifies the usage of the SDP setup attribute, if this attribute is included in an SDP 'dcsa' attribute associated to an MSRP data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
 
      <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'setup' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
 
