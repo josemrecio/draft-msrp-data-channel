@@ -486,7 +486,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>dcsa(msrp)</c>
 
        <c>Purpose:</c>
-       <c>Indicate support for the CEMA mechanism.</c>
+       <c>Indicate that the routing of MSRP messages transported on a data channel is more similar to the MSRP CEMA mechanism than the legacy MSRP routing mechanism.</c>
 
        <c>Reference:</c>
        <c>RFCXXXX</c>
