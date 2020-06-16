@@ -391,71 +391,10 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
    </section>
 
-   <section title="setup Attribute" anchor="IANA-reg-setup">
+   <section title="SDP Attributes" anchor="IANA-reg-other-sdp">
 
-     <t>This document modifies the usage of the SDP setup attribute, if this attribute is included in an SDP 'dcsa' attribute associated to an MSRP data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
-
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'setup' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
-
-     <texttable title="">
-       <ttcol align="left" width="35%"/>
-       <ttcol align="left" width="65%"/>
-
-       <c>Contact name:</c>
-       <c>IESG</c>
-
-       <c>Contact email:</c>
-       <c>iesg@ietf.org</c>
-
-       <c>Attribute name:</c>
-       <c>setup</c>
-
-       <!--
-       <c>Attribute syntax:</c>
-       <c>unchanged</c>
-       -->
-
-       <!--
-       <c>Attribute semantics:</c>
-       <c>unchanged</c>
-       -->
-
-       <c>Usage level:</c>
-       <c>dcsa(msrp)</c>
-
-       <!--
-       <c>Charset dependent:</c>
-       <c>unchanged</c>
-       -->
-
-       <c>Purpose:</c>
-       <c> Negotiate the active role of an MSRP session over a data channel as per 
-       <xref target="use-of-setup-attribute"/>
-       </c>
-
-       <!--
-       <c>Appropriate values:</c>
-       <c>unchanged</c>
-       -->
-
-       <!--
-       <c>O/A procedures:</c>
-       <c>unchanged</c>
-       -->
-
-       <!--
-       <c>Mux category:</c>
-       <c>unchanged</c>
-       -->
-
-       <c>Reference:</c>
-       <c>RFCXXXX</c>
-     </texttable>
-
-   </section>
-
-   <section title="Additional references to the  SDP Parameters registry" anchor="IANA-reg-other-sdp">
-    <t>This document adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry, if these attributes are included in SDP 'dcsa' attributes associated to an MSRP data channel:</t>
+    <t>This document modifies the usage of the SDP setup attribute, if this attribute is included in an SDP 'dcsa' attribute associated to an MSRP data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
+    <t>This document also adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry, if these attributes are included in SDP 'dcsa' attributes associated to an MSRP data channel. Usage of these attributes is described in section <xref target="use-of-dcsa-attribute"/>:</t>
     <t>
     <list style="symbols">
       <t>"path"</t>
@@ -475,7 +414,33 @@ a=dcmap:2 label="chat";subprotocol="msrp"
       <t>"file-range"</t>
     </list>
     </t>
-    <t>Usage of these attributes is described in section <xref target="use-of-dcsa-attribute"/>.</t>
+
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'setup' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+
+     <texttable title="">
+       <ttcol align="left" width="35%"/>
+       <ttcol align="left" width="65%"/>
+
+       <c>Contact name:</c>
+       <c>IESG</c>
+
+       <c>Contact email:</c>
+       <c>iesg@ietf.org</c>
+
+       <c>Attribute name:</c>
+       <c>setup</c>
+
+       <c>Usage level:</c>
+       <c>dcsa(msrp)</c>
+
+       <c>Purpose:</c>
+       <c> Negotiate the active role of an MSRP session over a data channel as per 
+       <xref target="use-of-setup-attribute"/>
+       </c>
+
+       <c>Reference:</c>
+       <c>RFCXXXX</c>
+     </texttable>
 
      <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'path' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
 
@@ -978,7 +943,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
      to list of normative references.
      </t>
 
-     <t>Addition of <xref target="IANA-reg-setup"/> as per section 8.2.4 
+     <t>Addition of IANA considerations for setup attribute as per section 8.2.4 
      of "I-D.ietf-mmusic-rfc4566bis"/>.
      </t>
 
