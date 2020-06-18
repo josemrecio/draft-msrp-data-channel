@@ -41,7 +41,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-17" ipr="trust200902" updates="RFC4975">
+<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-18" ipr="trust200902" updates="RFC4975">
   <!-- category values: std, bcp, info, exp, and historic
   ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
   or pre5378Trust200902
@@ -823,6 +823,15 @@ a=dcmap:2 label="chat";subprotocol="msrp"
   </section>
 
  <section title="CHANGE LOG">
+
+  <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-17'">
+   <t>
+    <list style="symbols">
+     <t>Shepherd's review: update to the file header, remove reference in abstract, mention update on introduction, reorder and complete IANA considerations.</t>
+     <t>Editorial: a MSRP -> an MSRP; MSRP -> msrp for consistency; typos.</t>
+    </list>
+   </t>
+  </section>
 
   <section title="Changes against 'draft-ietf-mmusic-msrp-usage-data-channel-16'">
    <t>
