@@ -434,7 +434,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>dcsa(msrp)</c>
 
        <c>Purpose:</c>
-       <c> Negotiate the active role of an MSRP session over a data channel as per 
+       <c>Negotiate the active role of an MSRP session over a data channel as per 
        <xref target="use-of-setup-attribute"/>
        </c>
 
@@ -461,8 +461,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>dcsa(msrp)</c>
 
        <c>Purpose:</c>
-       <c>Indicate a series of MSRP devices visited by messages sent in the MSRP session.</c>
-
+       <c>Indicate an endpoint, but not used for routing, as described in <xref target="use-of-dcsa-attribute"/></c>
        <c>Reference:</c>
        <c>RFCXXXX</c>
      </texttable>
