@@ -15,6 +15,7 @@
 <!ENTITY RFC6135 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6135.xml">
 <!ENTITY RFC6714 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6714.xml">
 <!ENTITY RFC7977 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7977.xml">
+<!ENTITY RFC8174 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8174.xml">
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
@@ -41,7 +42,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-20" ipr="trust200902" updates="4975">
+<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-21" ipr="trust200902" updates="4975">
   <!-- category values: std, bcp, info, exp, and historic
   ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
   or pre5378Trust200902
@@ -142,8 +143,12 @@
   </section>
 
   <section title="Conventions">
-   <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119"/>.</t>
- </section>
+    <t>
+      The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALLNOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",
+      "NOT RECOMMENDED","MAY", and "OPTIONAL" in this document are to be interpreted asdescribed in BCP 14 
+      <xref target="RFC2119"/><xref target="RFC8174"/> when, and only when, they appear in all capitals, as shown here. 
+    </t>
+  </section>
 
   <section title="WebRTC Data Channel Considerations">
 
@@ -177,7 +182,7 @@
   transport  /= "dc"
                 ; Add "dc" to existing transports per [RFC4975] ]]></artwork>
        </figure>
-      <t>MSRP design provides for new transport bindings, see Section 6 of <xref target="RFC4975"/>, MSRP implementations are expected to allow unrecognized transports for which there is no need to establish a connection to the resource described by the URI, as it's the case of data channels (<xref target="use-of-dcsa-attribute"/>).</t>
+      <t>MSRP design provides for new transport bindings (see Section 6 of <xref target="RFC4975"/>). MSRP implementations are expected to allow unrecognized transports for which there is no need to establish a connection to the resource described by the URI, as it's the case of data channels (<xref target="use-of-dcsa-attribute"/>).</t>
      </section>
      <section title="msrp-scheme">
       <t>The msrp-scheme portion of the MSRP-URI that represents an MSRP data channel endpoint (used in the SDP path attribute and in the MSRP message headers) is always "msrps", which indicates that the MSRP data channel is always secured using DTLS as described in <xref target="I-D.ietf-rtcweb-data-channel"/>.</t>
@@ -387,14 +392,19 @@ a=dcmap:2 label="chat";subprotocol="msrp"
 
    <section title="Subprotocol Identifier MSRP" anchor="IANA-reg-MSRP">
 
-    <t>This document adds a reference to the subprotocol identifier "msrp" in the "WebSocket Subprotocol Name Registry"</t>
+    <t>A reference to this document is added to the subprotocol identifier "msrp" in the "WebSocket Subprotocol Name Registry"</t>
 
    </section>
 
    <section title="SDP Attributes" anchor="IANA-reg-other-sdp">
 
-    <t>This document modifies the usage of the SDP setup attribute, if this attribute is included in an SDP 'dcsa' attribute associated to an MSRP data channel. The modified usage is described in <xref target="use-of-setup-attribute"/>.</t>
-    <t>This document also adds a reference to the following attributes in the Session Description Protocol (SDP) Parameters registry, if these attributes are included in SDP 'dcsa' attributes associated to an MSRP data channel. Usage of these attributes is described in section <xref target="use-of-dcsa-attribute"/>:</t>
+    <t>
+      This document modifies the usage of a set of SDP attributes, if any of those
+      attributes is included in an SDP 'dsca' attribute associated with an
+      MSRP data channel. The modified usage of the SDP 'setup' attribute is
+      described in <xref target="use-of-setup-attribute"/>. The usage of the other
+      SDP attributes is described in <xref target="use-of-dcsa-attribute"/>.
+    </t>
     <t>
     <list style="symbols">
       <t>"path"</t>
@@ -415,7 +425,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
     </list>
     </t>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'setup' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'setup' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -442,7 +452,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'path' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'path' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -466,7 +476,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'msrp-cema' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'msrp-cema' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -491,7 +501,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'accept-types' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'accept-types' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -516,7 +526,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'accept-wrapped-types' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'accept-wrapped-types' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -541,7 +551,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'max-size' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'max-size' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -566,7 +576,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'sendonly' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'sendonly' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -591,7 +601,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'recvonly' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'recvonly' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -616,7 +626,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'inactive' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'inactive' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -641,7 +651,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'sendrecv' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+     <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'sendrecv' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
 
      <texttable title="">
        <ttcol align="left" width="35%"/>
@@ -666,7 +676,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-selector' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-selector' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
      <texttable title="">
        <ttcol align="left" width="35%"/>
        <ttcol align="left" width="65%"/>
@@ -690,7 +700,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-transfer-id' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-transfer-id' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
      <texttable title="">
        <ttcol align="left" width="35%"/>
        <ttcol align="left" width="65%"/>
@@ -714,7 +724,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-disposition' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-disposition' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
      <texttable title="">
        <ttcol align="left" width="35%"/>
        <ttcol align="left" width="65%"/>
@@ -738,7 +748,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-date' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-date' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
      <texttable title="">
        <ttcol align="left" width="35%"/>
        <ttcol align="left" width="65%"/>
@@ -762,7 +772,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-icon' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-icon' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
      <texttable title="">
        <ttcol align="left" width="35%"/>
        <ttcol align="left" width="65%"/>
@@ -786,7 +796,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
        <c>RFCXXXX</c>
      </texttable>
 
-    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-range' attribute in the Session Description Protocol (SDP) Parameters registry as follows:</t>
+    <t>The usage level "dcsa(msrp)" is added to the registration of the SDP 'file-range' attribute in the Session Description Protocol (SDP) Parameters "att-field" sub-registry as follows:</t>
      <texttable title="">
        <ttcol align="left" width="35%"/>
        <ttcol align="left" width="65%"/>
@@ -1120,6 +1130,7 @@ a=dcmap:2 label="chat";subprotocol="msrp"
    &RFC6135;
    &RFC6714;
    &RFC7977;
+   &RFC8174;
 
  </references>
 
