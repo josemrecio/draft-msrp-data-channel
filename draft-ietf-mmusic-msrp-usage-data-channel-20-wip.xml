@@ -41,7 +41,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-19" ipr="trust200902" updates="RFC4975">
+<rfc category="std" docName="draft-ietf-mmusic-msrp-usage-data-channel-20" ipr="trust200902" updates="4975">
   <!-- category values: std, bcp, info, exp, and historic
   ipr values: trust200902, noModificationTrust200902, noDerivativesTrust200902,
   or pre5378Trust200902
@@ -112,7 +112,7 @@
 
   <abstract>
 
-   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as a WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint. This document updates RFC4975</t>
+   <t>This document specifies how the Message Session Relay Protocol (MSRP) can be transported as a WebRTC data channel sub-protocol, using the SDP offer/answer generic data channel negotiation framework to establish such a channel. Two network configurations are supported: connecting two MSRP over data channel endpoints; and a gateway configuration, connecting an MSRP over data channel endpoint with an MSRP over TCP or TLS endpoint. This document updates RFC4975.</t>
 
   </abstract>
  </front>
